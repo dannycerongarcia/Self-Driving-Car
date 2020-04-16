@@ -1,4 +1,4 @@
-drive : main.c motors.h
-	gcc -I wall main.c -lwiringPi -o drive
+drive : main.c motors.h motors.c
+	gcc -I wall main.c motors.c motors.h -lwiringPi -o drive
 rm:
 	rm drive
