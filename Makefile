@@ -1,4 +1,2 @@
-drive : main.c motors.h motors.c
-	gcc -I wall main.c motors.c motors.h -lwiringPi -o drive
-rm:
-	rm drive
+assignment4: main.c MotorShield.c SpeedEncoder.c
+	gcc -o assignment4 main.c MotorShield.c SpeedEncoder.c -I. -lwiringPi -lpthread
