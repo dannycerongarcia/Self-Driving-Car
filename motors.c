@@ -187,22 +187,14 @@ int stop(struct motor *mot,char config[7]){
 }
 
 int run(int val){
-    // int temp = 4
-    // struct motor motor1 = {"motor1",0,3,2,0,2,3,27};
-    // struct motor *motor1Ptr = &motor1;
-
-    // struct motor motor2 = {"motor2",6,4,5,6,5,4,0};
-    // struct motor *motor2Ptr = &motor2;
-
-    // struct motor motor3 = {"motor3",12,13,14,12,14,13,0};
-    // struct motor *motor3Ptr = &motor3;
-
-    // struct motor motor4 = {"motor4",26,10,11,26,11,10,3};
-    // struct motor *motor4Ptr = &motor4;
 
     int m1 = init("motor1","config1");
     printf("check = %d\n",m1);
     int m2 = init("motor2","config2");
+    printf("check = %d\n",m2);
+    int m3 = init("motor3","config1");
+    printf("check = %d\n",m1);
+    int m4 = init("motor4","config2");
     printf("check = %d\n",m2);
     for(int i=0;i<=val;i++){
         
@@ -210,10 +202,14 @@ int run(int val){
             printf("↑\nforward\n");
             m1 = foward(&motor1,25*i,"config1");
             m2 = foward(&motor2,25*i,"config2");
+            m3 = foward(&motor3,25*i,"config1");
+            m4 = foward(&motor4,25*i,"config2");
             
             sleep(5);
             m1 = stop(&motor1,"config1");
             m2 = stop(&motor2,"config2");
+            m3 = stop(&motor3,"config1");
+            m4 = stop(&motor4,"config2");
             printf("\nstop\n");
             sleep(2);
             }
@@ -221,11 +217,15 @@ int run(int val){
             printf("↓\nreverse\n");
             m1 = reverse(&motor1,10*i,"config1");
             m2 = reverse(&motor2,10*i,"config2");
+            m3 = reverse(&motor3,10*i,"config1");
+            m4 = reverse(&motor4,10*i,"config2");
             
             sleep(5);
             printf("\nstop\n");
             m1 = stop(&motor1,"config1");
             m2 = stop(&motor2,"config2");
+            m3 = stop(&motor3,"config1");
+            m4 = stop(&motor4,"config2");
             sleep(2);
             }
         if(i ==3){
@@ -233,11 +233,15 @@ int run(int val){
             printf("←\nleft\n");
             m1 = foward(&motor1,10*i,"config1");
             m2 = reverse(&motor2,10*i,"config2");
+            m3 = reverse(&motor3,10*i,"config1");
+            m4 = foward(&motor4,10*i,"config2");
             
             sleep(5);
             printf("\nstop\n");
             m1 = stop(&motor1,"config1");
             m2 = stop(&motor2,"config2");
+            m3 = stop(&motor3,"config1");
+            m4 = stop(&motor4,"config2");
             sleep(2);
             }
             if(i ==4){
