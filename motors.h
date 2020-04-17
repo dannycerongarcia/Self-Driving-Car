@@ -18,6 +18,9 @@ struct motor
     char motor[6];
     struct config config1;
     struct config config2;
+    int e;
+    int f;
+    int r
     
     int arrow;
 };

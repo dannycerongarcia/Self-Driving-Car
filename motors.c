@@ -11,22 +11,7 @@
 #include <string.h>
 #include <stdio.h>
 // struct for each motor configurations
-// struct config
-// {
-//     int e;
-//     int f;
-//     int r;
-// };
-// // struct for storing the data of the each motor.
-// // name, modulation pin, and output pins for making the motors run.
-// struct motor
-// {
-//     char motor[6];
-//     struct config config1;
-//     struct config config2;
-    
-//     int arrow;
-// };
+
 //  arrowpins={1:33,2:35,3:37,4:36}
 
 // motor variable initialization
@@ -42,15 +27,6 @@ struct motor *motor3Ptr = &motor3;
 
 struct motor motor4 = {"motor4",26,10,11,26,11,10,0};
 struct motor *motor4Ptr = &motor4;
-
-
-// int init(char[6],char[7]);
-// int initHelper(struct motor *, char[7]);
-// int foward(struct motor *,int,char[7]);
-// int reverse(struct motor *,int,char[7]);
-// int stop(struct motor *, char[7]);
-
-
 
 // params motor name, motor configuration
 // it calls the initHelper function to set up the pins for the motor being initialized 
@@ -74,8 +50,6 @@ int init(char motor[6],char config[7]){
         check = initHelper(&motor4,config);
     }
     return check;
-    
-    
 }
 // params: pointer to the motor being initialized, configuration of the motor
 // it configures the pins the motor will use.
@@ -88,9 +62,10 @@ int initHelper(struct motor *mot, char config[7]){
     // configuration 1
     // using pointer type 1
     if(strcmp(config,"config1")==0){
-        int e = (*mot).config1.e;
-        int f = (*mot).config1.f;
-        int r = (*mot).config1.r;
+        (*mot).e = (*mot).config1.e;
+        (*mot).f = (*mot).config1.f;
+        (*mot).r = (*mot).config1.r;
+
         // set the pins
         printf("e= %d,f= %d,r=%d",e,f,r);
         pinMode((*mot).config1.e,OUTPUT);
@@ -109,15 +84,15 @@ int initHelper(struct motor *mot, char config[7]){
     // configuration 2
     // using pointer type 2
     if(strcmp(config,"config2")==0){
-        int e = mot->config2.e;
-        int f = mot->config2.f;
-        int r = mot->config2.r;
+        mot->e = (*mot).config2.e;
+        mot->f = (*mot).config2.f;
+        mot->r = (*mot).config2.r;
         // set the pins
         printf("e= %d,f= %d,r=%d",e,f,r);
         // setting pins
-        pinMode(mot->config1.e,OUTPUT);
-        pinMode(mot->config1.f,OUTPUT);
-        pinMode(mot->config1.r,OUTPUT);
+        pinMode(mot->config2.e,OUTPUT);
+        pinMode(mot->config2.f,OUTPUT);
+        pinMode(mot->config2.r,OUTPUT);
         softPwmCreate(mot->config1.e,0,100);//set PWM channal with range
 
         // PinMode(mot->config1.e,PWM_OUTPUT);
@@ -136,15 +111,15 @@ int initHelper(struct motor *mot, char config[7]){
 int foward(struct motor *mot, int speed,char config[7]){
     // pwmWrite(mot->config.e,speed)
     if(strcmp(config,"config1")){
-        softPwmWrite(mot->config1.e,speed);
-        digitalWrite(mot->config1.f,HIGH);
-        digitalWrite(mot->config1.r,LOW);
+        softPwmWrite(mot->e,speed);
+        digitalWrite(mot->f,HIGH);
+        digitalWrite(mot->r,LOW);
         return 0;
     }
     if(strcmp(config,"config2")){
-        softPwmWrite(mot->config2.e,speed);
-        digitalWrite(mot->config2.f,HIGH);
-        digitalWrite(mot->config2.r,LOW);
+        softPwmWrite(mot->e,speed);
+        digitalWrite(mot->f,HIGH);
+        digitalWrite(mot->r,LOW);
         return 0;
     }
     return -1;
@@ -153,15 +128,15 @@ int foward(struct motor *mot, int speed,char config[7]){
 // sets the configuration pins to high voltage and the pin module to the speed value.
 int reverse(struct motor *mot,int speed,char config[7]){
     if(strcmp(config,"config1")){
-        softPwmWrite(mot->config1.e,speed);
-        digitalWrite(mot->config1.f,LOW);
-        digitalWrite(mot->config1.r,HIGH);
+        softPwmWrite(mot->e,speed);
+        digitalWrite(mot->f,LOW);
+        digitalWrite(mot->r,HIGH);
         return 0;
     }
     if(strcmp(config,"config2")){
-        softPwmWrite(mot->config2.e,speed);
-        digitalWrite(mot->config2.f,LOW);
-        digitalWrite(mot->config2.r,HIGH);
+        softPwmWrite(mot->e,speed);
+        digitalWrite(mot->f,LOW);
+        digitalWrite(mot->r,HIGH);
         return 0;
     }
     return -1;
@@ -171,15 +146,15 @@ int reverse(struct motor *mot,int speed,char config[7]){
 int stop(struct motor *mot,char config[7]){
     // pwmWrite(mot->config.e,speed)
     if(strcmp(config,"config1")){
-        softPwmWrite(mot->config1.e,0);
-        digitalWrite(mot->config1.f,LOW);
-        digitalWrite(mot->config1.r,LOW);
+        softPwmWrite(mot->e,0);
+        digitalWrite(mot->f,LOW);
+        digitalWrite(mot->r,LOW);
         return 0;
     }
     if(strcmp(config,"config2")){
-        softPwmWrite(mot->config2.e,0);
-        digitalWrite(mot->config2.f,LOW);
-        digitalWrite(mot->config2.r,LOW);
+        softPwmWrite(mot->e,0);
+        digitalWrite(mot->f,LOW);
+        digitalWrite(mot->r,LOW);
         return 0;
     }
     return -1;
@@ -188,9 +163,9 @@ int stop(struct motor *mot,char config[7]){
 
 int run(int val){
 
-    int m1 = init("motor1","config1");
+    int m1 = init("motor1","config2");
     printf("check = %d\n",m1);
-    int m2 = init("motor2","config2");
+    int m2 = init("motor2","config1");
     printf("check = %d\n",m2);
     int m3 = init("motor3","config1");
     printf("check = %d\n",m1);
@@ -200,8 +175,8 @@ int run(int val){
         
         if(i ==1){
             printf("↑\nforward\n");
-            m1 = foward(&motor1,27*i,"config1");
-            m2 = foward(&motor2,27*i,"config2");
+            m1 = foward(&motor1,27*i,"config2");
+            m2 = foward(&motor2,27*i,"config1");
             m3 = foward(&motor3,27*i,"config1");
             m4 = foward(&motor4,27*i,"config2");
             
