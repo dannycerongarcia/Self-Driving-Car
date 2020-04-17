@@ -189,7 +189,7 @@ int run(int action){
             printf("↑\nforward\n");
             allForward(i);
             
-            sleep(3);
+            sleep(1.5);
             stopAll();
             printf("\nstop\n");
             sleep(2);
@@ -198,7 +198,7 @@ int run(int action){
             printf("↓\nreverse\n");
            allReverse(i);
             
-            sleep(3);
+            sleep(1.5);
             printf("\nstop\n");
             stopAll();
             sleep(2);
@@ -206,7 +206,7 @@ int run(int action){
         if(i ==3){
             //turn left
             left(i);
-            sleep(3);
+            sleep(1.5);
             printf("\nstop\n");
             stopAll();
             sleep(2);
@@ -215,7 +215,7 @@ int run(int action){
             //turn right
             printf("→\nright\n");
             right(i);
-            sleep(3);
+            sleep(1.5);
             printf("\nstop\n");
             stopAll();
             sleep(2);
