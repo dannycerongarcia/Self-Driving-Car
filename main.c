@@ -1,11 +1,5 @@
 /* 	gcc obstacle.c -lwiringPi
 	./a.out 	
-
-Start with just moving the robot.
-Then move the robot in a predefined pattern, say a square
-Then add in the IR sensors
-then add in the Ultrasonic sensor.
-
 */
 
 #include <wiringPi.h>
