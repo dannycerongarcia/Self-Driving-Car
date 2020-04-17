@@ -11,37 +11,37 @@
 #include <string.h>
 #include <stdio.h>
 // struct for each motor configurations
-struct config
-{
-    int e;
-    int f;
-    int r;
-};
-// struct for storing the data of the each motor.
-// name, modulation pin, and output pins for making the motors run.
-struct motor
-{
-    char motor[6];
-    struct config config1;
-    struct config config2;
+// struct config
+// {
+//     int e;
+//     int f;
+//     int r;
+// };
+// // struct for storing the data of the each motor.
+// // name, modulation pin, and output pins for making the motors run.
+// struct motor
+// {
+//     char motor[6];
+//     struct config config1;
+//     struct config config2;
     
-    int arrow;
-};
+//     int arrow;
+// };
 //  arrowpins={1:33,2:35,3:37,4:36}
 
 // motor variable initialization
                      // pins 11,15,13,11,13,15,4
-struct motor motor1 = {"motor1",0,3,2,0,2,3,27};
-struct motor *motor1Ptr = &motor1;
+// struct motor motor1 = {"motor1",0,3,2,0,2,3,27};
+// struct motor *motor1Ptr = &motor1;
 
-struct motor motor2 = {"motor2",6,4,5,6,5,4,0};
-struct motor *motor2Ptr = &motor2;
+// struct motor motor2 = {"motor2",6,4,5,6,5,4,0};
+// struct motor *motor2Ptr = &motor2;
 
-struct motor motor3 = {"motor3",12,13,14,12,14,13,0};
-struct motor *motor3Ptr = &motor3;
+// struct motor motor3 = {"motor3",12,13,14,12,14,13,0};
+// struct motor *motor3Ptr = &motor3;
 
-struct motor motor4 = {"motor4",26,10,11,26,11,10,3};
-struct motor *motor4Ptr = &motor4;
+// struct motor motor4 = {"motor4",26,10,11,26,11,10,3};
+// struct motor *motor4Ptr = &motor4;
 
 
 // int init(char[6],char[7]);
@@ -188,6 +188,17 @@ int stop(struct motor *mot,char config[7]){
 
 int run(int val){
     // int temp = 4
+    struct motor motor1 = {"motor1",0,3,2,0,2,3,27};
+    struct motor *motor1Ptr = &motor1;
+
+    struct motor motor2 = {"motor2",6,4,5,6,5,4,0};
+    struct motor *motor2Ptr = &motor2;
+
+    struct motor motor3 = {"motor3",12,13,14,12,14,13,0};
+    struct motor *motor3Ptr = &motor3;
+
+    struct motor motor4 = {"motor4",26,10,11,26,11,10,3};
+    struct motor *motor4Ptr = &motor4;
     int m1 = init("motor1","config1");
     printf("check = %d\n",m1);
     int m2 = init("motor2","config2");
