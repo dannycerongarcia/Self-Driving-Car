@@ -183,7 +183,7 @@ int run(int action){
     printf("check = %d\n",m1);
     int m4 = init("motor4","config2");
     printf("check = %d\n",m2);
-    for(int i=0;i<=val;i++){
+    for(int i=0;i<=action;i++){
         
         if(i ==1){
             printf("↑\nforward\n");
