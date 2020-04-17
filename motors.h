@@ -4,7 +4,7 @@
 #include <wiringPi.h>
 #include <time.h>
 #include <string.h>
-#include <stdi
+#include <stdio>
 struct config
 {
     int e;
