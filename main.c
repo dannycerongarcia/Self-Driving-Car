@@ -7,7 +7,7 @@
 
 //#define obstacle_pin
 
-void setup();
+void init();
 void loop();
 void myISR();
 
@@ -28,13 +28,13 @@ int main(void)
 	}
 	
     while(1){
-         setup();
+         init();
          loop();
     }
 }
        
 
-void setup(){
+void init(){
 	//pinMode(LED, OUTPUT);
 	pinMode(obstacle_pin, INPUT);
 }
