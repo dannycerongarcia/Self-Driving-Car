@@ -133,7 +133,7 @@ int stop(struct motor *mot,char config[7]){
     digitalWrite(mot->r,LOW);
     return 0;
 }
-int allForward(){
+int allForward(int i){
     printf("↑\nforward\n");
     foward(&motor1,50*i,"config2");
     foward(&motor2,50*i,"config1");
@@ -141,7 +141,7 @@ int allForward(){
     foward(&motor4,50*i,"config2");
     return 0;
 }
-int allReverse(){
+int allReverse(int i){
     printf("↓\nreverse\n");
     reverse(&motor1,15*i,"config1");
     reverse(&motor2,15*i,"config2");
@@ -149,7 +149,7 @@ int allReverse(){
     reverse(&motor4,15*i,"config2");
     return 0;
 }
-int left(){
+int left(int i){
     printf("←\nleft\n");
     reverse(&motor1,15*i,"config1");
     foward(&motor2,15*i,"config2");
@@ -157,7 +157,7 @@ int left(){
     foward(&motor4,15*i,"config2");
     return 0;
 }
-int right(){
+int right(int i){
     printf("→\nright\n");
     foward(&motor1,15*i,"config1");
     reverse(&motor2,15*i,"config2");
@@ -187,7 +187,7 @@ int run(int action){
         
         if(i ==1){
             printf("↑\nforward\n");
-            allForward();
+            allForward(i);
             
             sleep(3);
             stopAll();
@@ -196,7 +196,7 @@ int run(int action){
             }
         if(i ==2){
             printf("↓\nreverse\n");
-           allReverse();
+           allReverse(i);
             
             sleep(3);
             printf("\nstop\n");
@@ -205,8 +205,7 @@ int run(int action){
             }
         if(i ==3){
             //turn left
-            left();
-            
+            left(i);
             sleep(3);
             printf("\nstop\n");
             stopAll();
@@ -215,8 +214,7 @@ int run(int action){
             if(i ==4){
             //turn right
             printf("→\nright\n");
-            right();
-            
+            right(i);
             sleep(3);
             printf("\nstop\n");
             stopAll();
