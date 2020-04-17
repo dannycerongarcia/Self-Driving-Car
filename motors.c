@@ -67,7 +67,7 @@ int initHelper(struct motor *mot, char config[7]){
         (*mot).r = (*mot).config1.r;
 
         // set the pins
-        printf("e= %d,f= %d,r=%d",e,f,r);
+        
         pinMode((*mot).config1.e,OUTPUT);
         pinMode((*mot).config1.f,OUTPUT);
         pinMode((*mot).config1.r,OUTPUT);
@@ -88,7 +88,7 @@ int initHelper(struct motor *mot, char config[7]){
         mot->f = (*mot).config2.f;
         mot->r = (*mot).config2.r;
         // set the pins
-        printf("e= %d,f= %d,r=%d",e,f,r);
+       
         // setting pins
         pinMode(mot->config2.e,OUTPUT);
         pinMode(mot->config2.f,OUTPUT);

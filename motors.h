@@ -20,7 +20,7 @@ struct motor
     struct config config2;
     int e;
     int f;
-    int r
+    int r;
     
     int arrow;
 };
