@@ -56,6 +56,6 @@ void loop(){
 	delay(500);
 }
 
-void myISR(void){
+void myISR(){
     printf("Obstacle Avoidance sensor test\n");
 }
