@@ -215,10 +215,10 @@ int run(int val){
             }
         if(i ==2){
             printf("↓\nreverse\n");
-            m1 = reverse(&motor1,10*i,"config1");
-            m2 = reverse(&motor2,10*i,"config2");
-            m3 = reverse(&motor3,10*i,"config1");
-            m4 = reverse(&motor4,10*i,"config2");
+            m1 = reverse(&motor1,15*i,"config1");
+            m2 = reverse(&motor2,15*i,"config2");
+            m3 = reverse(&motor3,15*i,"config1");
+            m4 = reverse(&motor4,15*i,"config2");
             
             sleep(5);
             printf("\nstop\n");
@@ -249,11 +249,15 @@ int run(int val){
             printf("→\nright\n");
             m1 = reverse(&motor1,10*i,"config1");
             m2 = foward(&motor2,10*i,"config2");
+            m1 = foward(&motor3,10*i,"config1");
+            m2 = reverse(&motor4,10*i,"config2");
             
             sleep(5);
             printf("\nstop\n");
             m1 = stop(&motor1,"config1");
             m2 = stop(&motor2,"config2");
+            m1 = stop(&motor3,"config1");
+            m2 = stop(&motor4,"config2");
             sleep(2);
             }
         }
