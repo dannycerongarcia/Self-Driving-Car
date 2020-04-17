@@ -200,12 +200,12 @@ int run(int val){
         
         if(i ==1){
             printf("↑\nforward\n");
-            m1 = foward(&motor1,25*i,"config1");
-            m2 = foward(&motor2,25*i,"config2");
-            m3 = foward(&motor3,25*i,"config1");
-            m4 = foward(&motor4,25*i,"config2");
+            m1 = foward(&motor1,27*i,"config1");
+            m2 = foward(&motor2,27*i,"config2");
+            m3 = foward(&motor3,27*i,"config1");
+            m4 = foward(&motor4,27*i,"config2");
             
-            sleep(5);
+            sleep(3);
             m1 = stop(&motor1,"config1");
             m2 = stop(&motor2,"config2");
             m3 = stop(&motor3,"config1");
@@ -220,7 +220,7 @@ int run(int val){
             m3 = reverse(&motor3,15*i,"config1");
             m4 = reverse(&motor4,15*i,"config2");
             
-            sleep(5);
+            sleep(3);
             printf("\nstop\n");
             m1 = stop(&motor1,"config1");
             m2 = stop(&motor2,"config2");
@@ -236,7 +236,7 @@ int run(int val){
             m3 = reverse(&motor3,10*i,"config1");
             m4 = foward(&motor4,10*i,"config2");
             
-            sleep(5);
+            sleep(3);
             printf("\nstop\n");
             m1 = stop(&motor1,"config1");
             m2 = stop(&motor2,"config2");
@@ -252,7 +252,7 @@ int run(int val){
             m1 = foward(&motor3,10*i,"config1");
             m2 = reverse(&motor4,10*i,"config2");
             
-            sleep(5);
+            sleep(3);
             printf("\nstop\n");
             m1 = stop(&motor1,"config1");
             m2 = stop(&motor2,"config2");
