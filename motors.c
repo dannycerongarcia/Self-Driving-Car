@@ -110,58 +110,70 @@ int initHelper(struct motor *mot, char config[7]){
 // sets the configuration pins to high voltage and the pin module to the speed value.
 int foward(struct motor *mot, int speed,char config[7]){
     // pwmWrite(mot->config.e,speed)
-    if(strcmp(config,"config1")){
-        softPwmWrite(mot->e,speed);
-        digitalWrite(mot->f,HIGH);
-        digitalWrite(mot->r,LOW);
-        return 0;
-    }
-    if(strcmp(config,"config2")){
-        softPwmWrite(mot->e,speed);
-        digitalWrite(mot->f,HIGH);
-        digitalWrite(mot->r,LOW);
-        return 0;
-    }
-    return -1;
+    softPwmWrite(mot->e,speed);
+    digitalWrite(mot->f,HIGH);
+    digitalWrite(mot->r,LOW);
+    return 0;
 }
 // params: struc motor pointer, int speed value, string motor configuration.
 // sets the configuration pins to high voltage and the pin module to the speed value.
 int reverse(struct motor *mot,int speed,char config[7]){
-    if(strcmp(config,"config1")){
-        softPwmWrite(mot->e,speed);
-        digitalWrite(mot->f,LOW);
-        digitalWrite(mot->r,HIGH);
-        return 0;
-    }
-    if(strcmp(config,"config2")){
-        softPwmWrite(mot->e,speed);
-        digitalWrite(mot->f,LOW);
-        digitalWrite(mot->r,HIGH);
-        return 0;
-    }
-    return -1;
+
+    softPwmWrite(mot->e,speed);
+    digitalWrite(mot->f,LOW);
+    digitalWrite(mot->r,HIGH);
+    return 0;
 }
 // params: struc motor pointer, int speed value, string motor configuration.
 // sets the configuration pins to 0 voltage and the pin module to 0.
 int stop(struct motor *mot,char config[7]){
     // pwmWrite(mot->config.e,speed)
-    if(strcmp(config,"config1")){
-        softPwmWrite(mot->e,0);
-        digitalWrite(mot->f,LOW);
-        digitalWrite(mot->r,LOW);
-        return 0;
-    }
-    if(strcmp(config,"config2")){
-        softPwmWrite(mot->e,0);
-        digitalWrite(mot->f,LOW);
-        digitalWrite(mot->r,LOW);
-        return 0;
-    }
-    return -1;
-
+    softPwmWrite(mot->e,0);
+    digitalWrite(mot->f,LOW);
+    digitalWrite(mot->r,LOW);
+    return 0;
+}
+int allForward(){
+    printf("↑\nforward\n");
+    foward(&motor1,50*i,"config2");
+    foward(&motor2,50*i,"config1");
+    foward(&motor3,50*i,"config1");
+    foward(&motor4,50*i,"config2");
+    return 0;
+}
+int allReverse(){
+    printf("↓\nreverse\n");
+    reverse(&motor1,15*i,"config1");
+    reverse(&motor2,15*i,"config2");
+    reverse(&motor3,15*i,"config1");
+    reverse(&motor4,15*i,"config2");
+    return 0;
+}
+int left(){
+    printf("←\nleft\n");
+    reverse(&motor1,15*i,"config1");
+    foward(&motor2,15*i,"config2");
+    reverse(&motor3,15*i,"config1");
+    foward(&motor4,15*i,"config2");
+    return 0;
+}
+int right(){
+    printf("→\nright\n");
+    foward(&motor1,15*i,"config1");
+    reverse(&motor2,15*i,"config2");
+    foward(&motor3,15*i,"config1");
+    reverse(&motor4,15*i,"config2");
+    return 0;
+}
+int stopAll(){
+    printf("\nstop\n");
+    stop(&motor1,"config1");
+    stop(&motor2,"config2");
+    stop(&motor3,"config1");
+    stop(&motor4,"config2");
 }
 
-int run(int val){
+int run(int action){
 
     int m1 = init("motor1","config2");
     printf("check = %d\n",m1);
@@ -175,66 +187,42 @@ int run(int val){
         
         if(i ==1){
             printf("↑\nforward\n");
-            m1 = foward(&motor1,50*i,"config2");
-            m2 = foward(&motor2,50*i,"config1");
-            m3 = foward(&motor3,50*i,"config1");
-            m4 = foward(&motor4,50*i,"config2");
+            allForward();
             
             sleep(3);
-            m1 = stop(&motor1,"config1");
-            m2 = stop(&motor2,"config2");
-            m3 = stop(&motor3,"config1");
-            m4 = stop(&motor4,"config2");
+            stopAll();
             printf("\nstop\n");
             sleep(2);
             }
         if(i ==2){
             printf("↓\nreverse\n");
-            m1 = reverse(&motor1,15*i,"config1");
-            m2 = reverse(&motor2,15*i,"config2");
-            m3 = reverse(&motor3,15*i,"config1");
-            m4 = reverse(&motor4,15*i,"config2");
+           allReverse();
             
             sleep(3);
             printf("\nstop\n");
-            m1 = stop(&motor1,"config1");
-            m2 = stop(&motor2,"config2");
-            m3 = stop(&motor3,"config1");
-            m4 = stop(&motor4,"config2");
+            stopAll();
             sleep(2);
             }
         if(i ==3){
             //turn left
-            printf("←\nleft\n");
-            m1 = reverse(&motor1,15*i,"config1");
-            m2 = foward(&motor2,15*i,"config2");
-            m3 = reverse(&motor3,15*i,"config1");
-            m4 = foward(&motor4,15*i,"config2");
+            left();
             
             sleep(3);
             printf("\nstop\n");
-            m1 = stop(&motor1,"config1");
-            m2 = stop(&motor2,"config2");
-            m3 = stop(&motor3,"config1");
-            m4 = stop(&motor4,"config2");
+            stopAll();
             sleep(2);
             }
             if(i ==4){
             //turn right
             printf("→\nright\n");
-            m1 = foward(&motor1,15*i,"config1");
-            m2 = reverse(&motor2,15*i,"config2");
-            m3 = foward(&motor3,15*i,"config1");
-            m4 = reverse(&motor4,15*i,"config2");
+            right();
             
             sleep(3);
             printf("\nstop\n");
-            m1 = stop(&motor1,"config1");
-            m2 = stop(&motor2,"config2");
-            m1 = stop(&motor3,"config1");
-            m2 = stop(&motor4,"config2");
+            stopAll();
             sleep(2);
             }
         }
     return 0;
 }
+
