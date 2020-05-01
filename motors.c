@@ -1,5 +1,6 @@
 /**************************************************************             
 * sources: https://www.electronicwings.com/raspberry-pi/raspberry-pi-pwm-generation-using-python-and-c
+
 *          https://github.com/sbcshop/MotorShield/blob/master/PiMotor.py
 **************************************************************/
 // resources:
@@ -65,9 +66,8 @@ int initHelper(struct motor *mot, char config[7]){
         (*mot).e = (*mot).config1.e;
         (*mot).f = (*mot).config1.f;
         (*mot).r = (*mot).config1.r;
-
-        // set the pins
         
+        // set the pins
         pinMode((*mot).config1.e,OUTPUT);
         pinMode((*mot).config1.f,OUTPUT);
         pinMode((*mot).config1.r,OUTPUT);
@@ -135,34 +135,34 @@ int stop(struct motor *mot,char config[7]){
 }
 int allForward(int i){
     printf("↑\nforward\n");
-    foward(&motor1,50*i,"config2");
-    foward(&motor2,50*i,"config1");
-    foward(&motor3,50*i,"config1");
-    foward(&motor4,50*i,"config2");
+    foward(&motor1,i,"config2");
+    foward(&motor2,1.5*i,"config1");
+    foward(&motor3,i,"config1");
+    foward(&motor4,i,"config2");
     return 0;
 }
 int allReverse(int i){
     printf("↓\nreverse\n");
-    reverse(&motor1,15*i,"config1");
-    reverse(&motor2,15*i,"config2");
-    reverse(&motor3,15*i,"config1");
-    reverse(&motor4,15*i,"config2");
+    reverse(&motor1,i,"config1");
+    reverse(&motor2,1.5*i,"config2");
+    reverse(&motor3,i,"config1");
+    reverse(&motor4,i,"config2");
     return 0;
 }
 int left(int i){
     printf("←\nleft\n");
-    reverse(&motor1,15*i,"config1");
-    foward(&motor2,15*i,"config2");
-    reverse(&motor3,15*i,"config1");
-    foward(&motor4,15*i,"config2");
+    reverse(&motor1,i,"config1");
+    foward(&motor2,1.5*i,"config2");
+    reverse(&motor3,i,"config1");
+    foward(&motor4,i,"config2");
     return 0;
 }
 int right(int i){
     printf("→\nright\n");
-    foward(&motor1,15*i,"config1");
-    reverse(&motor2,15*i,"config2");
-    foward(&motor3,15*i,"config1");
-    reverse(&motor4,15*i,"config2");
+    foward(&motor1,i,"config1");
+    reverse(&motor2,1.5*i,"config2");
+    foward(&motor3,i,"config1");
+    reverse(&motor4,i,"config2");
     return 0;
 }
 int stopAll(){
