@@ -1,7 +1,7 @@
 #include "linesensor.h"
-int left = 0;
-int middle = 0;
-int right = 0;
+int LEFT = 0;
+int MID = 0;
+int RIGT = 0;
 
 void setup_line_sensors(int lft, int mid, int rght)
 {
@@ -12,9 +12,9 @@ void setup_line_sensors(int lft, int mid, int rght)
     pinMode(lft, INPUT);
     pinMode(mid, INPUT);
     pinMode(rght, INPUT);
-    left = lft;
-    middle = mid;
-    right = rght;
+    LEFT = lft;
+    MID = mid;
+    RIGT = rght;
 }
 
 int line_sensor_loop(int *action)
@@ -23,20 +23,20 @@ int line_sensor_loop(int *action)
     // {
         if (digitalRead(left) == LOW && digitalRead(middle) == LOW && digitalRead(right) == LOW)
         {
-            *action = 0
+            *action = 0;
         }
-        if (digitalRead(left) == HIGH && digitalRead(middle) == LOW && digitalRead(right) == HIGH)
+        if (digitalRead(LEFT) == HIGH && digitalRead(MID) == LOW && digitalRead(RIGT) == HIGH)
         {
-            *action = 1
+            *action = 1;
         }
 
         if (digitalRead(left) == HIGH && digitalRead(middle) == HIGH && digitalRead(right) == LOW)
         {
-            *action = 3
+            *action = 3;
         }
         if (digitalRead(left) == LOW && digitalRead(middle) == HIGH && digitalRead(right) == HIGH)
         {
-            *action = 2
+            *action = 2;
         }
     // }
 
