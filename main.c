@@ -14,6 +14,7 @@ int act = 1;
 int *actPtr = &act;
 
 int main() {
+   wiringPiSetup();
    InitDistanceSensor(DISTANCESENSORTRIGGER, DISTANCESENSORECHO);   
    
    while(1) {
