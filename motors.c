@@ -163,7 +163,7 @@ int allForward(int i)
     foward(&motor2, 70, "config1");
     foward(&motor3, 70, "config1");
     foward(&motor4, 70, "config2");
-    delay(200);
+    delay(80);
     foward(&motor1, i, "config2");
     foward(&motor2, 1.5 * i, "config1");
     foward(&motor3, i, "config1");
