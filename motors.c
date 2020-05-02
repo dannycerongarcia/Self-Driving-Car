@@ -12,11 +12,11 @@
 #include <string.h>
 #include <stdio.h>
 
-#define STOP = 0;
-#define FORWARD = 1;
-#define LEFT = 2;
-#define RIGHT = 3;
-#define REVERSE = 4;
+#define STOP 0;
+#define FORWARD 1;
+#define LEFT 2;
+#define RIGHT 3;
+#define REVERSE 4;
 
 // #include <dos.h>
 // struct for each motor configurations
@@ -218,7 +218,8 @@ int run(int action)
     int m4 = init("motor4", "config2");
     printf("check = %d\n", m2);
     int i = 0;
-    if (action == FORWARD)
+    if (action == FORWARD
+    )
     {
         // printf("↑\nforward\n");
         allForward(30);
