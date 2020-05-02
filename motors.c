@@ -12,11 +12,11 @@
 #include <string.h>
 #include <stdio.h>
 
-#define STOP 0;
-#define FORWARD 1;
-#define LEFT 2;
-#define RIGHT 3;
-#define REVERSE 4;
+#define STOP 0
+#define FORWARD 1
+#define LEFT 2
+#define RIGHT 3
+#define REVERSE 4
 
 // #include <dos.h>
 // struct for each motor configurations
