@@ -20,7 +20,7 @@ int main() {
    while(1){
       line_sensor_loop(actPtr);
       printf("action: %d\n",*actPtr);
-      wait(2);
+      sleep(2);
    }
 
    printf("Hello, World!");
