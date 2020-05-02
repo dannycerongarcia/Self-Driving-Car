@@ -16,9 +16,9 @@ int *actPtr = &act;
 int main() {
    InitDistanceSensor(DISTANCESENSORTRIGGER, DISTANCESENSORECHO);   
    
-   run(actPtr);
    while(1) {
-    avoidObstacle(actPtr);  
+      run(actPtr);
+      avoidObstacle(actPtr);  
    }
    *actPtr = STOP;
    
