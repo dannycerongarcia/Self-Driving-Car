@@ -11,6 +11,13 @@
 #include <time.h>
 #include <string.h>
 #include <stdio.h>
+
+#define STOP = 0;
+#define FORWARD = 1;
+#define LEFT = 2;
+#define RIGHT = 3;
+#define REVERSE = 4;
+
 // #include <dos.h>
 // struct for each motor configurations
 
@@ -211,15 +218,15 @@ int run(int action)
     int m4 = init("motor4", "config2");
     printf("check = %d\n", m2);
     int i = 0;
-    if (action == 1)
+    if (action == FORWARD)
     {
-        printf("↑\nforward\n");
-        allForward(50);
+        // printf("↑\nforward\n");
+        allForward(30);
         sleep(2);
         printf("\nstop\n");
-        sleep(2);
+        stopAll();
     }
-    if (i == 2)
+    if (action == REVERSE)
     {
         printf("↓\nreverse\n");
         allReverse(i);
@@ -229,16 +236,12 @@ int run(int action)
         stopAll();
         sleep(2);
     }
-    if (i == 3)
+    if (action == LEFT)
     {
         //turn left
         left(i);
-        sleep(2);
-        printf("\nstop\n");
-        stopAll();
-        sleep(2);
     }
-    if (i == 4)
+    if (action == RIGHT)
     {
         //turn right
         printf("→\nright\n");
@@ -247,6 +250,9 @@ int run(int action)
         printf("\nstop\n");
         stopAll();
         sleep(2);
+    }
+    if(action ==STOP){
+        stopAll();
     }
     return 0;
 }
