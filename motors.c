@@ -223,7 +223,6 @@ int stopAll()
 
 int run(int *action)
 {
-
     int m1 = init("motor1", "config2");
     printf("check = %d\n", m1);
     int m2 = init("motor2", "config1");
@@ -232,38 +231,37 @@ int run(int *action)
     printf("check = %d\n", m1);
     int m4 = init("motor4", "config2");
     printf("check = %d\n", m2);
+    // speed
     int i = 10;
     printf("%d",*action);
+    int prev  =0;
     while (*action != -1)
     {
-        if (*action == FORWARD)
+        if (*action == FORWARD && prev != FORWARD)
         {
             // printf("↑\nforward\n");
             allForward(i);
             sleep(2);
-            printf("\nstop\n");
-            stopAll();
         }
-        if (*action == REVERSE)
+        if (*action == REVERSE && prev !=  REVERSE)
         {
-            printf("↓\nreverse\n");
             allReverse(i);
         }
-        if (*action == LEFT)
+        if (*action == LEFT && prev != LEFT)
         {
             //turn left
             left(i);
         }
-        if (*action == RIGHT)
+        if (*action == RIGHT && prev != RIGHT)
         {
             //turn right
-            printf("→\nright\n");
             right(i);
         }
         if (*action == STOP)
         {
             stopAll();
         }
-        return 0;
+        prev = *action;
     }
+    return 0;
 }
