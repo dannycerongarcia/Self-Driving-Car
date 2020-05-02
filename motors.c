@@ -165,7 +165,7 @@ int allForward(int i)
     foward(&motor4, 65, "config2");
     delay(80);
     foward(&motor1, i, "config2");
-    foward(&motor2, i + 10, "config1");
+    foward(&motor2, i + 20, "config1");
     foward(&motor3, i, "config1");
     foward(&motor4, i, "config2");
     return 0;
@@ -232,7 +232,7 @@ int run(int *action)
     printf("check = %d\n", m1);
     int m4 = init("motor4", "config2");
     printf("check = %d\n", m2);
-    int i = 15;
+    int i = 10;
     printf("%d",*action);
     while (*action != -1)
     {
