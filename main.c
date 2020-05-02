@@ -7,10 +7,11 @@
 #include "motors.h"
 #define STOP 0
 
-int *action = STOP;
+int act = STOP;
+
 int main() {
-   int 
-   run(&action);
+   int *actPtr = &act;
+   run(&actPtr);
    
 
    printf("Hello, World!");
