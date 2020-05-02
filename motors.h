@@ -25,7 +25,7 @@ struct motor
     int arrow;
 };
 
-int run(int);
+int run(int *);
 int init(char[6],char[7]);
 int initHelper(struct motor *, char[7]);
 int foward(struct motor *,int,char[7]);

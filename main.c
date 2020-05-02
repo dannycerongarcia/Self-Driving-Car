@@ -5,9 +5,13 @@
 #include <stdio.h>
 
 #include "motors.h"
+#define STOP 0
+
+int *action = STOP;
 int main() {
-   run(1);
-   delay(3000); 
+   int 
+   run(&action);
+   
 
    printf("Hello, World!");
    return 0;
