@@ -8,11 +8,12 @@
 #define STOP 0
 
 int act = 1;
+int *actPtr = &act;
 
 int main() {
-   int *actPtr = &act;
-   run(&actPtr);
-   actPtr = STOP;
+   
+   run(actPtr);
+   *actPtr = STOP;
    
 
    printf("Hello, World!");

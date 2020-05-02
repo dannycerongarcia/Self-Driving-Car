@@ -233,6 +233,7 @@ int run(int *action)
     int m4 = init("motor4", "config2");
     printf("check = %d\n", m2);
     int i = 15;
+    printf("%d",*action);
     while (*action != -1)
     {
         if (*action == FORWARD)
