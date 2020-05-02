@@ -215,9 +215,7 @@ int run(int action)
     {
         printf("↑\nforward\n");
         allForward(20);
-
         sleep(2);
-
         printf("\nstop\n");
         sleep(2);
     }
