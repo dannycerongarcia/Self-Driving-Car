@@ -19,8 +19,8 @@ int main() {
    setup_line_sensors(23,24,25);
    while(1){
       line_sensor_loop(actPtr);
-      printf("action: %d",*actPtr);
-      wait(1);
+      printf("action: %d\n",*actPtr);
+      wait(2);
    }
 
    printf("Hello, World!");
