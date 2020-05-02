@@ -11,7 +11,7 @@
 #include <time.h>
 #include <string.h>
 #include <stdio.h>
-#include <dos.h>
+// #include <dos.h>
 // struct for each motor configurations
 
 //  arrowpins={1:33,2:35,3:37,4:36}
