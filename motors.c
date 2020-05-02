@@ -218,42 +218,45 @@ int run(int action)
     int m4 = init("motor4", "config2");
     printf("check = %d\n", m2);
     int i = 0;
-    if (action == FORWARD
-    )
+    while (action !-1)
     {
-        // printf("↑\nforward\n");
-        allForward(30);
-        sleep(2);
-        printf("\nstop\n");
-        stopAll();
-    }
-    if (action == REVERSE)
-    {
-        printf("↓\nreverse\n");
-        allReverse(i);
+        if (action == FORWARD)
+        {
+            // printf("↑\nforward\n");
+            allForward(15);
+            sleep(2);
+            printf("\nstop\n");
+            stopAll();
+        }
+        if (action == REVERSE)
+        {
+            printf("↓\nreverse\n");
+            allReverse(i);
 
-        sleep(2);
-        printf("\nstop\n");
-        stopAll();
-        sleep(2);
-    }
-    if (action == LEFT)
-    {
-        //turn left
-        left(i);
-    }
-    if (action == RIGHT)
-    {
-        //turn right
-        printf("→\nright\n");
-        right(i);
-        sleep(2);
-        printf("\nstop\n");
-        stopAll();
-        sleep(2);
-    }
-    if(action ==STOP){
-        stopAll();
+            sleep(2);
+            printf("\nstop\n");
+            stopAll();
+            sleep(2);
+        }
+        if (action == LEFT)
+        {
+            //turn left
+            left(i);
+        }
+        if (action == RIGHT)
+        {
+            //turn right
+            printf("→\nright\n");
+            right(i);
+            sleep(2);
+            printf("\nstop\n");
+            stopAll();
+            sleep(2);
+        }
+        if (action == STOP)
+        {
+            stopAll();
+        }
     }
     return 0;
 }
