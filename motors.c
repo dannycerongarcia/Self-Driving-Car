@@ -165,7 +165,7 @@ int allForward(int i)
     foward(&motor4, 65, "config2");
     delay(80);
     foward(&motor1, i, "config2");
-    foward(&motor2,i+10, "config1");
+    foward(&motor2, i + 10, "config1");
     foward(&motor3, i, "config1");
     foward(&motor4, i, "config2");
     return 0;
@@ -173,26 +173,41 @@ int allForward(int i)
 int allReverse(int i)
 {
     printf("↓\nreverse\n");
+    reverse(&motor1, 65, "config1");
+    reverse(&motor2, 80, "config2");
+    reverse(&motor3, 65, "config1");
+    reverse(&motor4, 65, "config2");
+    delay(80);
     reverse(&motor1, i, "config1");
-    reverse(&motor2, i+10, "config2");
+    reverse(&motor2, i + 10, "config2");
     reverse(&motor3, i, "config1");
     reverse(&motor4, i, "config2");
     return 0;
 }
 int left(int i)
 {
+    reverse(&motor1, 65, "config1");
+    foward(&motor2, 80, "config2");
+    reverse(&motor3, 65, "config1");
+    foward(&motor4, 65, "config2");
+    delay(80);
     printf("←\nleft\n");
     reverse(&motor1, i, "config1");
-    foward(&motor2, i+10, "config2");
+    foward(&motor2, i + 10, "config2");
     reverse(&motor3, i, "config1");
     foward(&motor4, i, "config2");
     return 0;
 }
 int right(int i)
 {
+    foward(&motor1, 65, "config1");
+    reverse(&motor2, 80, "config2");
+    foward(&motor3, 65, "config1");
+    reverse(&motor4, 65, "config2");
+    delay(80);
     printf("→\nright\n");
     foward(&motor1, i, "config1");
-    reverse(&motor2, i+10, "config2");
+    reverse(&motor2, i + 10, "config2");
     foward(&motor3, i, "config1");
     reverse(&motor4, i, "config2");
     return 0;
@@ -217,46 +232,36 @@ int run(int *action)
     printf("check = %d\n", m1);
     int m4 = init("motor4", "config2");
     printf("check = %d\n", m2);
-    int i = 0;
-    while (action != -1)
+    int i = 15;
+    while (*action != -1)
     {
-        if (action == FORWARD)
+        if (*action == FORWARD)
         {
             // printf("↑\nforward\n");
-            allForward(15);
+            allForward(i);
             sleep(2);
             printf("\nstop\n");
             stopAll();
         }
-        if (action == REVERSE)
+        if (*action == REVERSE)
         {
             printf("↓\nreverse\n");
             allReverse(i);
-
-            sleep(2);
-            printf("\nstop\n");
-            stopAll();
-            sleep(2);
         }
-        if (action == LEFT)
+        if (*action == LEFT)
         {
             //turn left
             left(i);
         }
-        if (action == RIGHT)
+        if (*action == RIGHT)
         {
             //turn right
             printf("→\nright\n");
             right(i);
-            sleep(2);
-            printf("\nstop\n");
-            stopAll();
-            sleep(2);
         }
-        if (action == STOP)
+        if (*action == STOP)
         {
             stopAll();
         }
+        return 0;
     }
-    return 0;
-}
