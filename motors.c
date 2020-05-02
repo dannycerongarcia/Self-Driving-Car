@@ -174,7 +174,7 @@ int allReverse(int i)
 {
     printf("↓\nreverse\n");
     reverse(&motor1, i, "config1");
-    reverse(&motor2, 1.5 * i, "config2");
+    reverse(&motor2, i+10, "config2");
     reverse(&motor3, i, "config1");
     reverse(&motor4, i, "config2");
     return 0;
