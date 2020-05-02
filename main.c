@@ -6,7 +6,8 @@
 
 #include "motors.h"
 int main() {
-   run(4);
+   run(1);
+   delay(3000); 
 
    printf("Hello, World!");
    return 0;
