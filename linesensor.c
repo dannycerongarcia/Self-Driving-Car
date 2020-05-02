@@ -21,7 +21,7 @@ int line_sensor_loop(int *action)
 {
     // while
     // {
-        if (digitalRead(left) == LOW && digitalRead(middle) == LOW && digitalRead(right) == LOW)
+        if (digitalRead(LEFT) == LOW && digitalRead(MID) == LOW && digitalRead(RIGT) == LOW)
         {
             *action = 0;
         }
@@ -30,11 +30,11 @@ int line_sensor_loop(int *action)
             *action = 1;
         }
 
-        if (digitalRead(left) == HIGH && digitalRead(middle) == HIGH && digitalRead(right) == LOW)
+        if (digitalRead(LEFT) == HIGH && digitalRead(MID) == HIGH && digitalRead(RIGT) == LOW)
         {
             *action = 3;
         }
-        if (digitalRead(left) == LOW && digitalRead(middle) == HIGH && digitalRead(right) == HIGH)
+        if (digitalRead(LEFT) == LOW && digitalRead(MID) == HIGH && digitalRead(RIGT) == HIGH)
         {
             *action = 2;
         }
