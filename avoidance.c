@@ -42,11 +42,15 @@ void loop(){
 		if(left_obs == 0){
 			printf("Obstacle to the left \n");
 			right(i);
+			delay(100);
+			allforward(i);
 			//stopAll();
 		} 
 		if(right_obs == 0){
 			printf("Obstacle to the right \n");
 			left(i);
+			delay(100);
+			allforward(i);
 			//stopAll();
 		} 
 		else {
