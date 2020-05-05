@@ -9,7 +9,7 @@
 
 void init();
 void loop();
-void myISR();
+void test();
 
 int obstacle_pin = 29;
 int obstacle = HIGH; //high means no obstacle
@@ -22,7 +22,7 @@ int main(void)
 		printf("Initalization failed. ");
 		return 1;
     }
-	if(wiringPiISR(obstacle_pin, INT_EDGE_FALLING, &init)<0){
+	if(wiringPiISR(obstacle_pin, INT_EDGE_FALLING, &test)<0){
 		printf("Initalization ISR failed. \n");
 		return 1;
 	}
@@ -50,6 +50,6 @@ void loop(){
 	delay(500);
 }
 
-void init(){
+void test(){
     printf("Obstacle Avoidance sensor test\n");
 }
