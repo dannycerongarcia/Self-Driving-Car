@@ -230,6 +230,7 @@ int run(int *action)
     printf("%d",*action);
     while (*action != -1)
     {
+        printf("Running");
         if (*action == FORWARD)
         {
             // printf("↑\nforward\n");
