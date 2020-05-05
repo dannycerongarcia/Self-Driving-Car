@@ -70,12 +70,6 @@ int init(char motor[6], char config[7])
 // it configures the pins the motor will use.
 int initHelper(struct motor *mot, char config[7])
 {
-    if (wiringPiSetup() < 0)
-    {
-
-        printf("WiringPiSetUp failed");
-        return -1;
-    }
     // configuration 1
     // using pointer type 1
     if (strcmp(config, "config1") == 0)
@@ -264,6 +258,5 @@ int run(int *action)
         {
             stopAll();
         }
-        return 0;
     }
 }
