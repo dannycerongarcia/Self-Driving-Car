@@ -5,6 +5,7 @@
 #define obstacle_pin 7
 
 void init();
+void setup();
 void loop();
 void test();
 
@@ -20,11 +21,13 @@ void init(){
 		return 1;
 	}
 	
-    while(true){
-         init();
-         loop();
-    }
-	
+	    while(true){
+		 setup();
+		 loop();
+	    }
+}
+
+void setup(){
 	pinMode(obstacle_pin, INPUT);
 }
 
@@ -40,5 +43,5 @@ void loop(){
 }
 
 void test(){
-    printf("Obstacle Avoidance sensor test\n");
+    printf("Obstacle Avoidance test successful\n");
 }
