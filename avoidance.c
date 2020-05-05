@@ -1,6 +1,7 @@
 
 #include <wiringPi.h>
 #include <stdio.h>
+#include "motors.h"
 
 #define obstacle_pin 7
 
@@ -17,7 +18,7 @@ void init(){
 		return 1;
     }
 	if(wiringPiISR(obstacle_pin, INT_EDGE_FALLING, &test)<0){
-		printf("Initalization ISR failed. \n");
+		printf("Avoidance Sensor Initalization Failed. \n");
 		return 1;
 	}
 	
@@ -34,12 +35,13 @@ void setup(){
 void loop(){
 	obstacle = digitalRead(obstacle_pin);
 		if(obstacle == 0){
-			printf("Obstacle!!!\n");
+			printf("Obstacle Ahead! \n");
+			stopAll();
 		} 
 		else {
-			printf("Road Clear!\n");
+			printf("Road Clear.\n");
 		}
-	delay(500);
+         delay(300);
 }
 
 void test(){
