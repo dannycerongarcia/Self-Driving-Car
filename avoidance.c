@@ -3,14 +3,16 @@
 #include <stdio.h>
 #include "motors.h"
 
-#define obstacle_pin 7
+#define IR1 7
+#define IR2 12
 
 void init();
 void setup();
 void loop();
 void test();
 
-int obstacle = HIGH; //high means no obstacle
+int left_obs = HIGH; //high means no obstacle
+int right_obs = HIGH;
   
 void init(){
   if(wiringPiSetup() < 0){
@@ -29,13 +31,19 @@ void init(){
 }
 
 void setup(){
-	pinMode(obstacle_pin, INPUT);
+	pinMode(IR1, INPUT);
+	pinMode(IR2, INPUT);
 }
 
 void loop(){
-	obstacle = digitalRead(obstacle_pin);
-		if(obstacle == 0){
-			printf("Obstacle Ahead! \n");
+	left_obs = digitalRead(IR1);
+	right_obs = digitalRead(IR2);
+		if(left_obs == 0){
+			printf("Obstacle to the left \n");
+			stopAll();
+		} 
+		if(right_obs == 0){
+			printf("Obstacle to the right \n");
 			stopAll();
 		} 
 		else {
