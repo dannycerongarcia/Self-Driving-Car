@@ -4,6 +4,8 @@
 #include <time.h>
 #include "DistanceSensor.h"
 
+#define OBSTACLESENSOR 7
+
 int triggerPin, echoPin;
 
 void InitDistanceSensor(int trigger, int echo) {
