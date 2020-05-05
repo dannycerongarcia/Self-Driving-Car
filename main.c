@@ -9,6 +9,7 @@
 #define STOP 0
 #define DISTANCESENSORTRIGGER 21
 #define DISTANCESENSORECHO 22
+#define OBSTACLESENSOR 7
 
 int act = 1;
 int *actPtr = &act;
@@ -17,8 +18,8 @@ int main() {
    wiringPiSetup();
    InitDistanceSensor(DISTANCESENSORTRIGGER, DISTANCESENSORECHO);   
    
+   run(actPtr);
    while(1) {
-      run(actPtr);
       avoidObstacle(actPtr);  
    }
    *actPtr = STOP;
