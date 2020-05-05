@@ -9,12 +9,9 @@ void loop();
 void test();
 
 int obstacle = HIGH; //high means no obstacle
-
-
-int main(void)
-{
-
-    if(wiringPiSetup() < 0){
+  
+void init(){
+  if(wiringPiSetup() < 0){
 		printf("Initalization failed. ");
 		return 1;
     }
@@ -27,10 +24,7 @@ int main(void)
          init();
          loop();
     }
-}
-       
-
-void init(){
+	
 	pinMode(obstacle_pin, INPUT);
 }
 
