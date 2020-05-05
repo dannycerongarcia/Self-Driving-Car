@@ -34,7 +34,7 @@ void setup(){
 
 void loop(){
 	obstacle = digitalRead(obstacle_pin);
-		if(obstacle == 0){
+		if(obstacle == LOW){
 			printf("Obstacle Ahead! \n");
 			stopAll();
 		} 
