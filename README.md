@@ -7,3 +7,4 @@ An obstacle avoidance sensor consists of:
   
  If there is no obstacle, emitted infrared ray will disappear. If the infrared ray encounters an obstacle, it will be reflected back to the infrared-receiver. Then the infrared-receiver will detect this signal and confirm an obstacle ahead.
  
+Working voltage: DC 3.3V-5V
