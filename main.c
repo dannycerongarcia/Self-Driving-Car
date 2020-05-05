@@ -22,12 +22,12 @@ int main(void)
 		printf("Initalization failed. ");
 		return 1;
     }
-	if(wiringPiISR(obstacle_pin, INT_EDGE_FALLING, &myISR)<0){
+	if(wiringPiISR(obstacle_pin, INT_EDGE_FALLING, &init)<0){
 		printf("Initalization ISR failed. \n");
 		return 1;
 	}
 	
-    while(1){
+    while(true){
          init();
          loop();
     }
@@ -50,6 +50,6 @@ void loop(){
 	delay(500);
 }
 
-void myISR(){
+void init(){
     printf("Obstacle Avoidance sensor test\n");
 }
