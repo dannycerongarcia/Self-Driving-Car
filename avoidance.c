@@ -13,6 +13,7 @@ void test();
 
 int left_obs = HIGH; //high means no obstacle
 int right_obs = HIGH;
+int i = 10;
   
 void init(){
   if(wiringPiSetup() < 0){
@@ -40,11 +41,13 @@ void loop(){
 	right_obs = digitalRead(IR2);
 		if(left_obs == 0){
 			printf("Obstacle to the left \n");
-			stopAll();
+			right(i);
+			//stopAll();
 		} 
 		if(right_obs == 0){
 			printf("Obstacle to the right \n");
-			stopAll();
+			left(i);
+			//stopAll();
 		} 
 		else {
 			printf("Road Clear.\n");
