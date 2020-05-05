@@ -5,19 +5,18 @@
 #include <wiringPi.h>
 #include <stdio.h>
 
-//#define obstacle_pin
+#define obstacle_pin 7
 
 void init();
 void loop();
 void test();
 
-int obstacle_pin = 29;
 int obstacle = HIGH; //high means no obstacle
 
 
 int main(void)
 {
-	// int LED = 13;
+
     if(wiringPiSetup() < 0){
 		printf("Initalization failed. ");
 		return 1;
@@ -35,7 +34,6 @@ int main(void)
        
 
 void init(){
-	//pinMode(LED, OUTPUT);
 	pinMode(obstacle_pin, INPUT);
 }
 
