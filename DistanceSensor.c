@@ -37,6 +37,7 @@ double MeasureDistance() {
 }
 
 void avoidObstacle(int * action) {
+    printf("Checking for obstacle");
     if(MeasureDistance() <= 20) {
         *action = 0;
         sleep(3);
