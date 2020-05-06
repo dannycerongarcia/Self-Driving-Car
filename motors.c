@@ -233,10 +233,12 @@ int run(int *action)
     printf("check = %d\n", m2);
     // speed
     int i = 10;
-    printf("%d",*action);
+   
     int prev  =0;
     while (*action != -1)
     {
+        wait(2);
+        printf("%d",*action);
         if (*action == FORWARD && prev != FORWARD)
         {
             // printf("↑\nforward\n");
