@@ -20,7 +20,7 @@ void setup_line_sensors(int lft, int mid, int rght)
 
 int line_sensor_loop(int *action)
 {
-    while
+    while(1)
     {
         if (digitalRead(LEFT) == LOW && digitalRead(MID) == LOW && digitalRead(RIGT) == LOW)
         {
