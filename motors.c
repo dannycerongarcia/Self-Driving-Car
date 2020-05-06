@@ -232,12 +232,12 @@ int run(int *action)
     int m4 = init("motor4", "config2");
     printf("check = %d\n", m2);
     // speed
-    int i = 10;
+    int i = 20;
    
     int prev  =0;
     while (*action != -1)
     {
-        sleep(2);
+        // sleep(2);
         printf("motor action %d",*action);
         if (*action == FORWARD && prev != FORWARD)
         {
