@@ -28,7 +28,7 @@ int main() {
    // left,mid,right
 
    //  run(actPtr);
-    *actPtr = STOP;
+   //  *actPtr = STOP;
    // left,mid,right;
 
    setup_line_sensors(23,24,25);
