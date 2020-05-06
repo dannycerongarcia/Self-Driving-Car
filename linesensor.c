@@ -22,6 +22,7 @@ int line_sensor_loop(int *action)
 {
     while(1)
     {
+        printf("action: %d\n",*action);
         if (digitalRead(LEFT) == LOW && digitalRead(MID) == LOW && digitalRead(RIGT) == LOW)
         {
             pthread_mutex_lock(&mutex);
@@ -47,7 +48,7 @@ int line_sensor_loop(int *action)
             *action = 2;
             pthread_mutex_unlock(&mutex);
         }
-        printf("action: %d\n",*action);
+        
     }
 
     return -1;
