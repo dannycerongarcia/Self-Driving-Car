@@ -1,6 +1,6 @@
 /**************************************************************             
-* sources: https://www.electronicwings.com/raspberry-pi/raspberry-pi-pwm-generation-using-python-and-c
-
+* sources: 
+*          https://www.electronicwings.com/raspberry-pi/raspberry-pi-pwm-generation-using-python-and-c
 *          https://github.com/sbcshop/MotorShield/blob/master/PiMotor.py
 **************************************************************/
 // resources:

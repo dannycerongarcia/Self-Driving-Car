@@ -22,21 +22,10 @@ int main() {
    pthread_t thread_id;
    pthread_create(&thread_id,NULL,motorThreadFunction,(void *)&thread_id);
    
-  // printf("motor in thread: %d\n",thread_id);
-   
-   // *actPtr = STOP;
-   // left,mid,right
-
-   //  run(actPtr);
-   //  *actPtr = STOP;
-   // left,mid,right;
-
    setup_line_sensors(23,24,25);
-   // while(1){
-      line_sensor_loop(actPtr);
-    // printf("action: %d\n",*actPtr);
-      // wait(1);
-   // }
+
+   line_sensor_loop(actPtr);
+
    pthread_join(thread_id,NULL);
    printf("Hello, World!");
    return 0;
