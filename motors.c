@@ -221,14 +221,14 @@ int stopAll()
     stop(&motor4, "config2");
 }
 
+/*
+param: pointer to the action in main
+*/
 int run(int *action)
 {
     int m1 = init("motor1", "config2");
-    
     int m2 = init("motor2", "config1");
-    
     int m3 = init("motor3", "config1");
-    
     int m4 = init("motor4", "config2");
 
     // speed
@@ -237,10 +237,8 @@ int run(int *action)
     int prev  =0;
     while (*action != -1)
     {
-        printf("motor action %d\n",*action);
         if (*action == FORWARD && prev != FORWARD)
         {
-            // printf("↑\nforward\n");
             allForward(i);
         }
         if (*action == REVERSE && prev !=  REVERSE)
