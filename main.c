@@ -18,7 +18,7 @@ int main() {
    
 
    // threadinf the motors function
-   pthrread_t thread_id;
+   pthread_t thread_id;
    pthread_create(&thread_id,NULL,motorThreadFunction,NULL);
    pthread_join(thread_id,NULL);
    printf("motor in thread: %d\n",thread_id);
