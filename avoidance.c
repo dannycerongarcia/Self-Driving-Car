@@ -4,7 +4,7 @@
 #include "motors.h"
 
 #define IR1 7
-#define IR2 12
+#define IR2 1
 
 void init();
 void setup();
