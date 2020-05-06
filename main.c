@@ -4,6 +4,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <pthread.h>
+#include <unistd.h> 
 
 #include "motors.h"
 #include "linesensor.h"
@@ -12,7 +13,7 @@
 int act = 0;
 int *actPtr = &act;
 
-void *motorThreadFunction(void *vargp){run(actPtr);}
+void *motorThreadFunction(void *vargp){run(actPtr); return NULL;}
 
 int main() {
    
