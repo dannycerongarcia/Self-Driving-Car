@@ -15,12 +15,9 @@ int act = 0;
 int *actPtr = &act;
 pthread_t motor_thread;
 //---------------------------------cleaning up threads--------------------------------
-static void
-
 void handler(int sig)
 {
-
-   printf("Execption Caught %d", sig);
+   printf("Execption ctrl-c Caught %d", sig);
    exit(0);
 }
 //------------------------------------------------------------------------------------
