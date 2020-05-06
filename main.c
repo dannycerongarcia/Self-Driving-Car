@@ -13,15 +13,15 @@
 int act = 0;
 int *actPtr = &act;
 
-void *motorThreadFunction(void *vargp){run(actPtr); return NULL;}
+void *motorThreadFunction(void *vargp){run(actPtr);}
 
 int main() {
    
 
    // threadinf the motors function
    pthread_t thread_id;
-   pthread_create(&thread_id,NULL,motorThreadFunction,NULL);
-   pthread_join(thread_id,NULL);
+   pthread_create(&thread_id,NULL,motorThreadFunction,(void *)&thread_id);
+   
    printf("motor in thread: %d\n",thread_id);
    
    // *actPtr = STOP;
@@ -37,7 +37,7 @@ int main() {
       printf("action: %d\n",*actPtr);
       sleep(1);
    }
-
+   pthread_join(thread_id,NULL);
    printf("Hello, World!");
    return 0;
 }
