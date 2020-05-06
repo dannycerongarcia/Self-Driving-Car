@@ -237,8 +237,8 @@ int run(int *action)
     int prev  =0;
     while (*action != -1)
     {
-        wait(2);
-        printf("%d",*action);
+        sleep(2);
+        printf("motor action %d",*action);
         if (*action == FORWARD && prev != FORWARD)
         {
             // printf("↑\nforward\n");

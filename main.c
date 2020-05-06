@@ -35,7 +35,7 @@ int main() {
    while(1){
       line_sensor_loop(actPtr);
       printf("action: %d\n",*actPtr);
-      sleep(2);
+      sleep(1);
    }
 
    printf("Hello, World!");
