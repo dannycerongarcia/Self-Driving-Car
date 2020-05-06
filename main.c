@@ -9,7 +9,7 @@
 #include "linesensor.h"
 #define STOP 0
 
-int act = ;
+int act = 0;
 int *actPtr = &act;
 
 void *motorThreadFunction(void *vargp){run(actPtr);}
@@ -20,7 +20,7 @@ int main() {
    // threadinf the motors function
    pthrread_t thread_id;
    pthread_create(&thread_id,NULL,motorThreadFunction,NULL);
-   pthread_join(thread_id,NULL)
+   pthread_join(thread_id,NULL);
    printf("motor in thread: %d\n",thread_id);
    
    // *actPtr = STOP;
