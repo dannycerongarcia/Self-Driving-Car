@@ -47,7 +47,7 @@ int line_sensor_loop(int *action)
             *action = 2;
             pthread_mutex_unlock(&mutex);
         }
-        printf("action: %d\n",*actPtr);
+        printf("action: %d\n",*action);
     }
 
     return -1;
