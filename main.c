@@ -16,6 +16,7 @@ void *motorThreadFunction(void *vargp){run(actPtr);}
 
 int main() {
    
+
    // threadinf the motors function
    pthrread_t thread_id;
    pthread_create(&thread_id,NULL,motorThreadFunction,NULL);
@@ -24,6 +25,11 @@ int main() {
    
    // *actPtr = STOP;
    // left,mid,right
+
+   //  run(actPtr);
+    *actPtr = STOP;
+   // left,mid,right;
+
    setup_line_sensors(23,24,25);
    while(1){
       line_sensor_loop(actPtr);
