@@ -32,11 +32,11 @@ int main() {
    // left,mid,right;
 
    setup_line_sensors(23,24,25);
-   while(1){
+   // while(1){
       line_sensor_loop(actPtr);
-      printf("action: %d\n",*actPtr);
-      wait(1);
-   }
+      // printf("action: %d\n",*actPtr);
+      // wait(1);
+   // }
    pthread_join(thread_id,NULL);
    printf("Hello, World!");
    return 0;
