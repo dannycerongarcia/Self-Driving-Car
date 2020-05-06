@@ -3,17 +3,25 @@
 #include <time.h>
 #include <string.h>
 #include <stdio.h>
+#include <pthread.h>
 
 #include "motors.h"
 #include "linesensor.h"
 #define STOP 0
 
-int act = 1;
+int act = ;
 int *actPtr = &act;
+
+void *motorThreadFunction(void *vargp){run(actPtr);}
 
 int main() {
    
-   // run(actPtr);
+   // threadinf the motors function
+   pthrread_t thread_id;
+   pthread_create(&thread_id,NULL,motorThreadFunction,NULL);
+   pthread_join(thread_id,NULL)
+   printf("motor in thread: %d\n",thread_id);
+   
    // *actPtr = STOP;
    // left,mid,right
    setup_line_sensors(23,24,25);
