@@ -243,7 +243,7 @@ int run(int *action)
         {
             // printf("↑\nforward\n");
             allForward(i);
-            sleep(2);
+            // sleep(2);
         }
         if (*action == REVERSE && prev !=  REVERSE)
         {

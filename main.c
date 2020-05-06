@@ -35,7 +35,7 @@ int main() {
    while(1){
       line_sensor_loop(actPtr);
       printf("action: %d\n",*actPtr);
-      // sleep(1);
+      wait(1);
    }
    pthread_join(thread_id,NULL);
    printf("Hello, World!");
