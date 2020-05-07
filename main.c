@@ -14,7 +14,7 @@ int main() {
    
    run(actPtr);
    *actPtr = STOP;
-   init();
+   init_ir();
 
    printf("Hello, World!");
    return 0;
