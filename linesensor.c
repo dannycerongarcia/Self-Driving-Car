@@ -24,28 +24,28 @@ int line_sensor_loop(int *action)
     {
         if (digitalRead(LEFT) == HIGH && digitalRead(MID) == HIGH && digitalRead(RIGT) == HIGH)
         {
-            // pthread_mutex_lock(&mutex);
+            pthread_mutex_lock(&mutex);
             *action = 0;
-            // pthread_mutex_unlock(&mutex);
+            pthread_mutex_unlock(&mutex);
         }
         if (digitalRead(LEFT) == LOW && digitalRead(MID) == HIGH && digitalRead(RIGT) == LOW)
         {
-            // pthread_mutex_lock(&mutex);
+            pthread_mutex_lock(&mutex);
             *action = 1;
-            // pthread_mutex_unlock(&mutex);
+            pthread_mutex_unlock(&mutex);
         }
 
         if (digitalRead(LEFT) == LOW && digitalRead(MID) == LOW && digitalRead(RIGT) == HIGH)
         {
-            // pthread_mutex_lock(&mutex);
+            pthread_mutex_lock(&mutex);
             *action = 3;
-            // pthread_mutex_unlock(&mutex);
+            pthread_mutex_unlock(&mutex);
         }
         if (digitalRead(LEFT) == HIGH && digitalRead(MID) == LOW && digitalRead(RIGT) == LOW)
         {
-            // pthread_mutex_lock(&mutex);
+            pthread_mutex_lock(&mutex);
             *action = 2;
-            // pthread_mutex_unlock(&mutex);
+            pthread_mutex_unlock(&mutex);
         }
         
     }
