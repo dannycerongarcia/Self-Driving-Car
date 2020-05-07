@@ -39,11 +39,12 @@ void setup(){
 void loop(){
 	left_obs = digitalRead(IR1);
 	right_obs = digitalRead(IR2);
+	
 		while(left_obs == 0){
 			printf("Obstacle to the left \n");
 			counter+=1;
 			printf("counter: %d\n", counter);
-			}
+		}
 			//obstacle not to the left anymore
 			if(left_obs == 1){ 
 				printf("ready to turn... \n");
@@ -65,7 +66,6 @@ void loop(){
 				right(counter); 
 				allforward(i);
 			}
-		
 			else {
 				printf("Road Clear.\n");
 			}
