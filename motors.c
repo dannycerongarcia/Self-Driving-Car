@@ -255,7 +255,7 @@ int run(int *action)
             //turn right
             right(i);
         }
-        if (*action == STOP)
+        if (*action == STOP && prev != STOP)
         {
             stopAll();
         }
