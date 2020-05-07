@@ -159,13 +159,13 @@ int stop(struct motor *mot, char config[7])
 int allForward(int i)
 {
     printf("↑\nforward\n");
-    foward(&motor1, 70, "config2");
-    foward(&motor2, 80, "config1");
-    foward(&motor3, 70, "config1");
-    foward(&motor4, 70, "config2");
+    foward(&motor1, 90, "config2");
+    foward(&motor2, 100, "config1");
+    foward(&motor3, 90, "config1");
+    foward(&motor4, 90, "config2");
     delay(80);
     foward(&motor1, i, "config2");
-    foward(&motor2, i + 20, "config1");
+    foward(&motor2, i + 30, "config1");
     foward(&motor3, i, "config1");
     foward(&motor4, i, "config2");
     return 0;
@@ -173,13 +173,13 @@ int allForward(int i)
 int allReverse(int i)
 {
     printf("↓\nreverse\n");
-    reverse(&motor1, 70, "config1");
-    reverse(&motor2, 80, "config2");
-    reverse(&motor3, 70, "config1");
-    reverse(&motor4, 70, "config2");
+    reverse(&motor1, 90, "config1");
+    reverse(&motor2, 100, "config2");
+    reverse(&motor3, 90, "config1");
+    reverse(&motor4, 90, "config2");
     delay(80);
     reverse(&motor1, i, "config1");
-    reverse(&motor2, i + 10, "config2");
+    reverse(&motor2, i + 30, "config2");
     reverse(&motor3, i, "config1");
     reverse(&motor4, i, "config2");
     return 0;
@@ -188,26 +188,26 @@ int left(int i)
 {
     reverse(&motor1, 90, "config1");
     foward(&motor2, 100, "config2");
-    reverse(&motor3, 70, "config1");
-    foward(&motor4, 70, "config2");
+    reverse(&motor3, 90, "config1");
+    foward(&motor4, 90, "config2");
     delay(80);
     printf("←\nleft\n");
     reverse(&motor1, i, "config1");
-    foward(&motor2, i + 10, "config2");
+    foward(&motor2, i + 30, "config2");
     reverse(&motor3, i, "config1");
     foward(&motor4, i, "config2");
     return 0;
 }
 int right(int i)
 {
-    foward(&motor1, 70, "config1");
+    foward(&motor1, 90, "config1");
     reverse(&motor2, 80, "config2");
-    foward(&motor3, 70, "config1");
-    reverse(&motor4, 70, "config2");
+    foward(&motor3, 90, "config1");
+    reverse(&motor4, 90, "config2");
     delay(80);
     printf("→\nright\n");
     foward(&motor1, i, "config1");
-    reverse(&motor2, i + 10, "config2");
+    reverse(&motor2, i + 30, "config2");
     foward(&motor3, i, "config1");
     reverse(&motor4, i, "config2");
     return 0;
