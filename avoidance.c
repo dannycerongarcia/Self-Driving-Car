@@ -5,7 +5,7 @@
 #define IR1 7
 #define IR2 1
 
-void init();
+void init_ir();
 void setup();
 void loop();
 void test();
@@ -15,7 +15,7 @@ int right_obs = HIGH;
 int i = 10;
 int counter = 0;
   
-void init(){
+void init_ir(){
   if(wiringPiSetup() < 0){
 		printf("Initalization failed. ");
 		return 1;
