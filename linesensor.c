@@ -22,26 +22,30 @@ int line_sensor_loop(int *action)
 {
     while(1)
     {
-        if (digitalRead(LEFT) == HIGH && digitalRead(MID) == HIGH && digitalRead(RIGT) == HIGH)
+        int lft = digitalRead(LEFT);
+        int mid = digitalRead(MID);
+        int rght =  digitalRead(RIGT);
+
+        if (dlft == HIGH && digitalRead(MID) == HIGH && digitalRead(RIGT) == HIGH)
         {
             pthread_mutex_lock(&mutex);
             *action = 0;
             pthread_mutex_unlock(&mutex);
         }
-        if (digitalRead(LEFT) == LOW && digitalRead(MID) == HIGH && digitalRead(RIGT) == LOW)
+        if (dlft == LOW && digitalRead(MID) == HIGH && digitalRead(RIGT) == LOW)
         {
             pthread_mutex_lock(&mutex);
             *action = 1;
             pthread_mutex_unlock(&mutex);
         }
 
-        if (digitalRead(LEFT) == LOW && digitalRead(MID) == LOW && digitalRead(RIGT) == HIGH)
+        if (dlft == LOW && digitalRead(MID) == LOW && digitalRead(RIGT) == HIGH)
         {
             pthread_mutex_lock(&mutex);
             *action = 3;
             pthread_mutex_unlock(&mutex);
         }
-        if (digitalRead(LEFT) == HIGH && digitalRead(MID) == LOW && digitalRead(RIGT) == LOW)
+        if (dlft == HIGH && digitalRead(MID) == LOW && digitalRead(RIGT) == LOW)
         {
             pthread_mutex_lock(&mutex);
             *action = 2;
