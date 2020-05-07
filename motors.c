@@ -186,8 +186,8 @@ int allReverse(int i)
 }
 int left(int i)
 {
-    reverse(&motor1, 70, "config1");
-    foward(&motor2, 80, "config2");
+    reverse(&motor1, 90, "config1");
+    foward(&motor2, 100, "config2");
     reverse(&motor3, 70, "config1");
     foward(&motor4, 70, "config2");
     delay(80);

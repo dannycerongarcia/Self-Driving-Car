@@ -9,8 +9,7 @@
 
 #include "motors.h"
 #include "linesensor.h"
-#define STOP 0
-
+#def
 int act = 0;
 int *actPtr = &act;
 pthread_t motor_thread;
