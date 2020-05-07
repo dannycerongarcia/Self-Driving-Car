@@ -23,7 +23,7 @@ void handler(int sig)
 //------------------------------------------------------------------------------------
 void *motorThreadFunction(void *vargp)
 {
-   pthread_cleanup_push(cleanup_handler, NULL);
+   pthread_cleanup_push(handler, NULL);
    run(actPtr);
 }
 
