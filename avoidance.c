@@ -50,7 +50,7 @@ void loop(){
 				printf("ready to turn... \n");
 				delay(300);
 				left(counter); 
-				allforward(i);
+				allForward(i);
 			}
 
 		
@@ -64,7 +64,7 @@ void loop(){
 				printf("ready to turn... \n");
 				delay(300);
 				right(counter); 
-				allforward(i);
+				allForward(i);
 			}
 			else {
 				printf("Road Clear.\n");
