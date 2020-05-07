@@ -32,7 +32,7 @@ int main()
 {
 
    //    threadinf the motors function
-   signal(SIGINT,handler)
+   signal(SIGINT,handler);
    pthread_create(&motor_thread, NULL, motorThreadFunction, (void *)&motor_thread);
 
    setup_line_sensors(23, 24, 25);
