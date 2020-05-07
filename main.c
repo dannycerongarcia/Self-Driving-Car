@@ -39,7 +39,7 @@ int main()
 
    line_sensor_loop(actPtr);
 
-   pthread_join(thread_id, NULL);
+   pthread_join(motor_thread, NULL);
    printf("Hello, World!");
    return 0;
 }
