@@ -22,7 +22,9 @@ int line_sensor_loop(int *action)
 {
     while(1)
     {
-        int lft = digitalRead(LEFT);
+        *action = 0;
+
+        int dlft = digitalRead(LEFT);
         int mid = digitalRead(MID);
         int rght =  digitalRead(RIGT);
 

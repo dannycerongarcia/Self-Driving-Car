@@ -17,6 +17,7 @@ pthread_t motor_thread;
 void handler(int sig)
 {
    printf("Execption ctrl-c Caught %d", sig);
+   stopAll();
    exit(0);
 }
 //------------------------------------------------------------------------------------
