@@ -232,7 +232,7 @@ int run(int *action)
     int m4 = init("motor4", "config2");
 
     // speed
-    int i = 25;
+    int i = 15;
    
     int prev  =0;
     while (*action != -1)
