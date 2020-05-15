@@ -34,7 +34,7 @@ int line_sensor_loop(int *action)
             *action = 0;
             pthread_mutex_unlock(&mutex);
         }
-        if (dlft == HIG && digitalRead(MID) == HIGH && digitalRead(RIGT) == HIGH)
+        if (dlft == HIGH && digitalRead(MID) == HIGH && digitalRead(RIGT) == HIGH)
         {
             pthread_mutex_lock(&mutex);
             *action = 1;
