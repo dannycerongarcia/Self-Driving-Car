@@ -62,18 +62,21 @@ void loop(){
             	if(left_obs == 1){
 		       stopAll();
 		       sleep(3);
-		       printf("Turning LEFT...\n");
 		       left(i);
+		       printf("Turning LEFT....\n");
+			
+			//left_obs = false;
 		  	  break;
             } }
         
 	   while(right_obs){
             	if(right_obs == 1){
 		       stopAll();
-			sleep(5);
 			sleep(3);
-		       printf("Turning RIGHT....\n");
                		right(i);
+			printf("Turning RIGHT....\n");
+			
+			//right_obs = false;
 		    break;
             }
         }
