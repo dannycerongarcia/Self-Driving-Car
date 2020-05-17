@@ -3,8 +3,8 @@
 #include <stdbool.h>
 #include "motors.h"
 
- #define IR1 7 //RIGHT
- #define IR2 1 //LEFT
+#define IR1 7 //RIGHT
+#define IR2 1 //LEFT
 
 void init_ir();
 void setup();
