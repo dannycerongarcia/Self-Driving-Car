@@ -40,6 +40,7 @@ void loop(){
 	printf("RIGHT %d\n", right_obs);
 	
 	
+	//if there is an obstacle on either side
 	if(left_obs == 0 || right_obs == 0){
 		allForward(i);
 		
