@@ -67,7 +67,8 @@ void loop(){
 			
 			//left_obs = false;
 		  	  break;
-            } }
+            	}
+	    }
         
 	   while(right_obs){
             	if(right_obs == 1){
