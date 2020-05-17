@@ -1,4 +1,3 @@
-  
 #include <wiringPi.h>
 #include <stdio.h>
 #include <stdbool.h>
@@ -12,9 +11,7 @@ void setup();
 void loop();
 void test();
 
-// int left_obs = HIGH;
-// int right_obs = HIGH;
-int i = 15;
+int i = 10;
 int counter = 5;
 bool objLeft = false;
 bool objRight = false;
@@ -25,11 +22,9 @@ void init_ir(){
 		return 1;
     }
 	setup();
-
 	    while(1){
 		 loop();
-	    }
-	    
+	    }	    
 }
 
 void setup(){
@@ -41,22 +36,46 @@ void loop(){
 	int right_obs = digitalRead(IR1);
 	int left_obs = digitalRead(IR2);
 	
-	printf("left_obs %d\n", left_obs);
-	printf("right_obs %d\n", right_obs);
+	printf("LEFT: %d\n", left_obs);
+	printf("RIGHT %d\n", right_obs);
 	
 	
 	if(left_obs == 0 || right_obs == 0){
-		printf("obstacle to the left\n");
 		allForward(i);
-		objLeft = true;
-			if(left_obs == 1 && right_obs ==1){
-				objLeft = false;
-				delay(100);
-				stopAll();
-			}	else {
-					stopAll();
-			}
+		
+		if(left_obs == 0){
+		    objLeft = true;
+		}  
+			if( right_obs ==0 ){
+			    objRight = true;
+		}  
+    
 	}
-	         delay(500);
+			// if(left_obs == 1 && right_obs ==1){
+			// 	delay(100);
+			// 	stopAll();
+			// }	else {
+			// 		stopAll();
+			// }
+    
+            while(left_obs){
+            	if(left_obs == 1){
+		       stopAll();
+		       sleep(3);
+		       printf("Turning LEFT...\n");
+		       left(i);
+		  	  break;
+            } }
+        
+	   while(right_obs){
+            	if(right_obs == 1){
+		       stopAll();
+			sleep(5);
+			sleep(3);
+		       printf("Turning RIGHT....\n");
+               		right(i);
+		    break;
+            }
+        }
+	
 }
-
