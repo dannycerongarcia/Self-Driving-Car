@@ -36,7 +36,7 @@ void *motorThreadFunction(void *vargp)
 
 int main()
 {
-
+   wiringPiSetup();
    //    threadinf the motors function
    signal(SIGINT,handler);
    pthread_create(&motor_thread, NULL, motorThreadFunction, (void *)&motor_thread);
