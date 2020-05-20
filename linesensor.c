@@ -31,7 +31,7 @@ void checkLineSensor(int *action, _Bool *isTrail)
         pthread_mutex_lock(&mutex);
         *action = 0;
         pthread_mutex_unlock(&mutex);
-        *isTrail = false;
+        //*isTrail = FALSE;
     }
     if (dlft == HIGH && digitalRead(MID) == HIGH && digitalRead(RIGT) == HIGH)
     {
