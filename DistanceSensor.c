@@ -44,18 +44,23 @@ void avoidObstacle(int * action) {
         *action = 0;
         sleep(3);
         if(MeasureDistance() <= 10) {
-            while(digitalRead(OBSTACLESENSOR) == 1) {
-                *action = 3;
-            }
-            *action = 0;
-        }
-        while(digitalRead(OBSTACLESENSOR) == 0) {
-            *action = 1;
-        }
-        *action = 0;
-        while(digitalRead(OBSTACLESENSOR) == 1) {
-            *action = 2;
-        }
-        *action = 0;
+		maneuverObstacle(action);
+	}
+    }	    
+}
+
+
+void maneuverObstacle(int * action) {
+    while(digitalRead(OBSTACLESENSOR) == 1) {
+        *action = 3;
     }
+    *action = 0;
+    while(digitalRead(OBSTACLESENSOR) == 0) {
+        *action = 1;
+    }
+    *action = 0;
+    while(digitalRead(OBSTACLESENSOR) == 1) {
+        *action = 2;
+    }
+    *action = 0;
 }
