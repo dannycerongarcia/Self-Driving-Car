@@ -17,7 +17,7 @@
 int act = 0;
 int *actPtr = &act;
 pthread_t motor_thread;
-_Bool isTrail = true;
+_Bool isTrail = TRUE;
 _Bool * isTrailPtr = &isTrail;
 //---------------------------------cleaning up threads--------------------------------
 void handler(int sig)
@@ -42,7 +42,7 @@ int main()
    pthread_create(&motor_thread, NULL, motorThreadFunction, (void *)&motor_thread);
 
    setup_line_sensors(23, 24, 25);
-   InitDistanceSensor(TRIGGER, ECHO)
+   InitDistanceSensor(TRIGGER, ECHO);
 
    while(isTrail) {
        CheckLineSensor(actPtr, isTrailPtr)
