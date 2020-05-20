@@ -159,10 +159,10 @@ int stop(struct motor *mot, char config[7])
 int allForward(int i)
 {
     printf("↑\nforward\n");
-    foward(&motor1, 50, "config2");
-    foward(&motor2, 50, "config1");
-    foward(&motor3, 50, "config1");
-    foward(&motor4, 50, "config2");
+    foward(&motor1, 27, "config2");
+    foward(&motor2, 27, "config1");
+    foward(&motor3, 27, "config1");
+    foward(&motor4, 27, "config2");
     delay(80);
     foward(&motor1, i, "config2");
     foward(&motor2, i , "config1");
@@ -173,10 +173,10 @@ int allForward(int i)
 int allReverse(int i)
 {
     printf("↓\nreverse\n");
-    reverse(&motor1, 50, "config1");
-    reverse(&motor2, 50, "config2");
-    reverse(&motor3, 50, "config1");
-    reverse(&motor4, 50, "config2");
+    reverse(&motor1, 27, "config1");
+    reverse(&motor2, 27, "config2");
+    reverse(&motor3, 27, "config1");
+    reverse(&motor4, 27, "config2");
     delay(80);
     reverse(&motor1, i, "config1");
     reverse(&motor2, i , "config2");
@@ -186,10 +186,10 @@ int allReverse(int i)
 }
 int left(int i)
 {
-    reverse(&motor1, 100, "config1");
-    foward(&motor2, 50, "config2");
-    reverse(&motor3, 50, "config1");
-    foward(&motor4, 50, "config2");
+    reverse(&motor1, 27, "config1");
+    foward(&motor2, 27, "config2");
+    reverse(&motor3, 27, "config1");
+    foward(&motor4, 27, "config2");
     delay(80);
     printf("←\nleft\n");
     reverse(&motor1, i, "config1");
@@ -200,10 +200,10 @@ int left(int i)
 }
 int right(int i)
 {
-    foward(&motor1, 100, "config1");
-    reverse(&motor2, 50, "config2");
-    foward(&motor3, 50, "config1");
-    reverse(&motor4, 50, "config2");
+    foward(&motor1, 27, "config1");
+    reverse(&motor2, 27, "config2");
+    foward(&motor3, 27, "config1");
+    reverse(&motor4, 27, "config2");
     delay(80);
     printf("→\nright\n");
     foward(&motor1, i, "config1");
@@ -226,7 +226,7 @@ param: pointer to the action in main
 */
 int run(int *action)
 {
-    int m1 = init("motor1", "config2");
+    int m1 = init("motor1", "config1");
     int m2 = init("motor2", "config1");
     int m3 = init("motor3", "config1");
     int m4 = init("motor4", "config2");
