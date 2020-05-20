@@ -1,4 +1,2 @@
-drive : main.c motors.h motors.c
-	gcc -I wall main.c motors.c motors.h -lwiringPi -o drive
-rm:
-	rm drive
+robotCar: main.c motors.c linesensor.c DistanceSensor.c
+	gcc -o robotCar main.c motors.c linesensor.c DistanceSensor.c -I. -lwiringPi -lpthread
