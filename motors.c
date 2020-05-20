@@ -226,7 +226,7 @@ param: pointer to the action in main
 */
 int run(int *action)
 {
-    int m1 = init("motor1", "config1");
+    int m1 = init("motor1", "config2");
     int m2 = init("motor2", "config1");
     int m3 = init("motor3", "config1");
     int m4 = init("motor4", "config2");
