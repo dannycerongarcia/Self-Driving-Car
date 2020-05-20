@@ -70,12 +70,12 @@ void checkEchoSensor() {
        sleep(2);
        if(MeasureDistance() <= 10.0) {
            printf("Obstacle still there\n");
-           maneuverObject(allMotors);
+           maneuverObject();
        }
     }
 }
 
-void maneuverObject(struct Motors allMotors []) {
+void maneuverObject() {
     printf("Attempting to go around\n");
     while(digitalRead(OBSTACLESENSOR) == 1) {
         pthread_create(&speedEncoderThread, NULL, &SpeedEncoderRotations, NULL);
