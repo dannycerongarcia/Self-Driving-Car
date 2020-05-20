@@ -45,7 +45,7 @@ int main()
    InitDistanceSensor(TRIGGER, ECHO);
 
    while(isTrail) {
-       CheckLineSensor(actPtr, isTrailPtr);
+       checkLineSensor(actPtr, isTrailPtr);
        avoidObstacle(actPtr);
    }
 
