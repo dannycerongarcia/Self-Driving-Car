@@ -192,10 +192,10 @@ int left(int i)
     foward(&motor4, 50, "config2");
     delay(80);
     printf("←\nleft\n");
-    reverse(&motor1, i, "config1");
-    foward(&motor2, i, "config2");
-    reverse(&motor3, i, "config1");
-    foward(&motor4, i, "config2");
+    reverse(&motor1, i+10, "config1");
+    foward(&motor2, i+10, "config2");
+    reverse(&motor3, i+10, "config1");
+    foward(&motor4, i+10, "config2");
     return 0;
 }
 int right(int i)
@@ -206,10 +206,10 @@ int right(int i)
     reverse(&motor4, 50, "config2");
     delay(80);
     printf("→\nright\n");
-    foward(&motor1, i, "config1");
-    reverse(&motor2, i, "config2");
-    foward(&motor3, i, "config1");
-    reverse(&motor4, i, "config2");
+    foward(&motor1, i+10, "config1");
+    reverse(&motor2, i+10, "config2");
+    foward(&motor3, i+10, "config1");
+    reverse(&motor4, i+10, "config2");
     return 0;
 }
 int stopAll()
