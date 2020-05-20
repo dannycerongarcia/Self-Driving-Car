@@ -13,7 +13,6 @@ int pin;
 void InitSpeedEncoder(int pinNum) {
 	pin = pinNum;
 
-	wiringPiSetup();
 	pinMode(pinNum, INPUT);
 }
 
