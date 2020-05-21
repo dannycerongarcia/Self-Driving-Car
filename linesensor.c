@@ -20,8 +20,6 @@ void setup_line_sensors(int lft, int mid, int rght)
 
 void checkLineSensor(_Bool *isTrail)
 {
-    *action = 0;
-
     int dlft = digitalRead(LEFT);
     int mid = digitalRead(MID);
     int rght =  digitalRead(RIGT);
@@ -37,10 +35,10 @@ void checkLineSensor(_Bool *isTrail)
     }
     if (dlft == LOW && digitalRead(MID) == HIGH && digitalRead(RIGT) == HIGH)
     {
-        right(30);
+        right(25);
     }
     if (dlft == HIGH && digitalRead(MID) == HIGH && digitalRead(RIGT) == LOW)
     {
-        left(3);
+        left(25);
     }
 }
