@@ -11,6 +11,7 @@
 #include "linesensor.h"
 #include "DistanceSensor.h"
 #include "SpeedEncoder.h"
+#include "avoidance.h"
 
 #define TRIGGER 21
 #define ECHO 22
@@ -42,6 +43,7 @@ int main() {
 	
    	initMotors();
 	initSensors();
+	init_ir();
 
    	while(isTrail) {
        		checkLineSensor(isTrailPtr);
