@@ -129,7 +129,7 @@ void CheckLineSensor(_Bool *isTrail)
     if (dlft == LOW && digitalRead(MID) == LOW && digitalRead(RIGT) == LOW)
     {
         stopAll();
-        *isTrail = false;
+        *isTrail = FALSE;
     }
     if (dlft == HIGH && digitalRead(MID) == HIGH && digitalRead(RIGT) == HIGH)
     {
