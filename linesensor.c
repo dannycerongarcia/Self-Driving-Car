@@ -18,7 +18,7 @@ void setup_line_sensors(int lft, int mid, int rght)
     RIGT = rght;
 }
 
-void checkLineSensor(int *action, _Bool *isTrail)
+void checkLineSensor(_Bool *isTrail)
 {
     *action = 0;
 
@@ -28,27 +28,19 @@ void checkLineSensor(int *action, _Bool *isTrail)
 
     if (dlft == LOW && digitalRead(MID) == LOW && digitalRead(RIGT) == LOW)
     {
-        pthread_mutex_lock(&mutex);
-        *action = 0;
-        pthread_mutex_unlock(&mutex);
+        stopAll();
         //*isTrail = FALSE;
     }
     if (dlft == HIGH && digitalRead(MID) == HIGH && digitalRead(RIGT) == HIGH)
     {
-        pthread_mutex_lock(&mutex);
-        *action = 1;
-        pthread_mutex_unlock(&mutex);
+        allForward(20);
     }
     if (dlft == LOW && digitalRead(MID) == HIGH && digitalRead(RIGT) == HIGH)
     {
-        pthread_mutex_lock(&mutex);
-        *action = 3;
-        pthread_mutex_unlock(&mutex);
+        right(30);
     }
     if (dlft == HIGH && digitalRead(MID) == HIGH && digitalRead(RIGT) == LOW)
     {
-        pthread_mutex_lock(&mutex);
-        *action = 2;
-        pthread_mutex_unlock(&mutex);
+        left(3);
     }
 }
