@@ -63,7 +63,7 @@ void initMotors() {
 }
 
 void initSensors() {
-	setup_line_sensors(23, 24, 25);
+	setup_line_sensors(23, 24, 25, 27, 27);
    	InitDistanceSensor(TRIGGER, ECHO);
    	InitSpeedEncoder(SPEEDENCODER);
 }
