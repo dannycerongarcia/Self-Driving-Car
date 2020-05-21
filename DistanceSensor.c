@@ -77,7 +77,7 @@ void maneuverObject() {
     left(50);
         //pthread_join(speedEncoderThread, NULL);
     //}
-    sleep(1);
+    sleep(2);
     printf("Stopping\n");
     stopAll();
     sleep(1);
