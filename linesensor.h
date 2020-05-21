@@ -7,4 +7,4 @@
 
 void setup_line_sensors(int, int, int);
 
-void checkLineSensor(int *, _Bool *);
+void checkLineSensor(_Bool *);
