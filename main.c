@@ -15,9 +15,14 @@
 #define TRIGGER 21
 #define ECHO 22
 #define SPEEDENCODER 29
+#define LEFT 23
+#define MID 24
+#define RIGT 25
 
 void checkEchoSensor();
 void maneuverObject();
+void InitMotors();
+void CheckLineSensor(_Bool * isTrail)
 
 int act = 0;
 int *actPtr = &act;
@@ -52,7 +57,7 @@ int main()
    InitSpeedEncoder(SPEEDENCODER);
 
    while(isTrail) {
-       checkLineSensor(isTrailPtr);
+       CheckLineSensor(isTrailPtr);
        checkEchoSensor();
    }
 
@@ -77,8 +82,7 @@ void InitMotors() {
 void checkEchoSensor() {
     printf("CHECKECHOSENSOR");
     if(MeasureDistance() <= 10.0) {
-	    printf("POTENTIAL OBSTACLE\n");
-	    obstacle = TRUE;
+       printf("POTENTIAL OBSTACLE\n");
        stopAll();
        sleep(2);
        if(MeasureDistance() <= 10.0) {
@@ -115,7 +119,7 @@ void maneuverObject() {
     stopAll();
 }
 
-void checkLineSensor(_Bool *isTrail)
+void CheckLineSensor(_Bool *isTrail)
 {
     int dlft = digitalRead(LEFT);
     int mid = digitalRead(MID);
