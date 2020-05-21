@@ -18,6 +18,7 @@
 #define LEFT 23
 #define MID 24
 #define RIGT 25
+#define OBSTACLESENSOR 1
 
 void checkEchoSensor();
 void maneuverObject();
