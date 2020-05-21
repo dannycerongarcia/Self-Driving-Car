@@ -133,14 +133,14 @@ void CheckLineSensor(_Bool *isTrail)
     }
     if (dlft == HIGH && digitalRead(MID) == HIGH && digitalRead(RIGT) == HIGH)
     {
-        allForward(10);
+        allForward(23);
     }
     if (dlft == LOW && digitalRead(MID) == HIGH && digitalRead(RIGT) == HIGH)
     {
-        right(10);
+        right(23);
     }
     if (dlft == HIGH && digitalRead(MID) == HIGH && digitalRead(RIGT) == LOW)
     {
-        left(10);
+        left(23);
     }
 }
