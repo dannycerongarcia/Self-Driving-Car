@@ -52,40 +52,43 @@ void checkEchoSensor() {
 
 void maneuverObject() {
     printf("Turning right\n");
-    printf("%d\n", digitalRead(OBSTACLESENSOR));
-    while(digitalRead(OBSTACLESENSOR) == 1) {
+    //printf("%d\n", digitalRead(OBSTACLESENSOR));
+    //while(digitalRead(OBSTACLESENSOR) == 1) {
         //pthread_create(&speedEncoderThread, NULL, &SpeedEncoderRotations, NULL);
         right(30);
         //pthread_join(speedEncoderThread, NULL);
-    }
+    //}
+    sleep(1);
     printf("Stopping\n");
     stopAll();
-    sleep(2);
+    sleep(1);
     printf("Going forward\n");
-    printf("%d\n", digitalRead(OBSTACLESENSOR));
-    while(digitalRead(OBSTACLESENSOR) == 0) {
+    //printf("%d\n", digitalRead(OBSTACLESENSOR));
+    //while(digitalRead(OBSTACLESENSOR) == 0) {
          allForward(23);
-    }
+    //}
+    sleep(2);
     printf("Stopping\n");
     stopAll();
-    sleep(2);
+    sleep(1);
     printf("Turning left\n");
     //while(digitalRead(OBSTACLESENSOR) == 1) {
         //pthread_create(&speedEncoderThread, NULL, &SpeedEncoderRotations, NULL);
-    left(70);
+    left(30);
         //pthread_join(speedEncoderThread, NULL);
     //}
-    sleep(3);
+    sleep(1);
     printf("Stopping\n");
     stopAll();
-    sleep(2);
+    sleep(1);
     printf("Moving forward\n");
-    while(digitalRead(OBSTACLESENSOR) == 0) {
+    //while(digitalRead(OBSTACLESENSOR) == 0) {
         allForward(23);
-    }
-    printf("Stopping\n");
-    stopAll();
+    //}
     sleep(2);
+    //printf("Stopping\n");
+    //stopAll();
+    //sleep(2);
 }
 
 
