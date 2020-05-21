@@ -29,7 +29,7 @@ void checkLineSensor(_Bool *isTrail)
     if (dlft == LOW && digitalRead(MID) == LOW && digitalRead(RIGT) == LOW)
     {
         stopAll();
-        left(50)
+        left(50);
         sleep(2);
         if(dlft == LOW && mid == LOW && rght == LOW) {
             right(50);
