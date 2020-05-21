@@ -53,4 +53,5 @@ void checkLineSensor(_Bool *isTrail)
     }
     if(digitalRead(FAR_RIGHT) == HIGH) {
         right(25);
+    }
 }
