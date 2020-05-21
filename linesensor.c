@@ -5,10 +5,9 @@
 int LEFT = 0;
 int MID = 0;
 int RIGHT = 0;
-int FAR_RIGHT = 0;
 int FAR_LEFT = 0;
 
-void setup_line_sensors(int lft, int mid, int rght, int farRight, int farLeft)
+void setup_line_sensors(int lft, int mid, int rght, int farLeft)
 {
     if (wiringPiSetup() < 0)
     {
@@ -17,12 +16,10 @@ void setup_line_sensors(int lft, int mid, int rght, int farRight, int farLeft)
     pinMode(lft, INPUT);
     pinMode(mid, INPUT);
     pinMode(rght, INPUT);
-    pinMode(farRight, INPUT);
     pinMode(farLeft, INPUT);
     LEFT = lft;
     MID = mid;
     RIGHT = rght;
-    FAR_RIGHT = farRight;
     FAR_LEFT = farLeft;
 }
 
@@ -36,15 +33,7 @@ void checkLineSensor(_Bool *isTrail)
     {
         stopAll();
         sleep(1);
-        left(50);
-        sleep(.5);
-        if(dlft == LOW && mid == LOW && rght == LOW) {
-            right(50);
-            sleep(1);
-            if(dlft == LOW && mid == LOW && rght == LOW) {
-                stopAll();
-            }
-        }
+        right(25);
     }
     if (dlft == HIGH && digitalRead(MID) == HIGH && digitalRead(RIGT) == HIGH)
     {
@@ -57,9 +46,6 @@ void checkLineSensor(_Bool *isTrail)
     if (dlft == HIGH && digitalRead(MID) == HIGH && digitalRead(RIGT) == LOW)
     {
         left(25);
-    }
-    if(digitalRead(FAR_RIGHT) == HIGH) {
-        right(25);
     }
     if(digitalRead(FAR_LEFT) == HIGH) {
         left(25);
