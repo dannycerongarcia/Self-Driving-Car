@@ -23,7 +23,7 @@ void init_ir(){
 		return 1;
     }
 	setup();
-
+	
 	     while(1){
 		 loop();
 	    }	    
