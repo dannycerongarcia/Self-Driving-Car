@@ -24,10 +24,7 @@ void  SpeedEncoderRotations() {
 	int data;
 	while(rotations != 50) {
 	    data = digitalRead(pin);
-	    if(data == dataHigh) {
-            	while (data != dataHigh) {
-                	data = digitalRead(pin);
-            	}
+	    if(data != dataHigh) {
             	++pulses;
             	rotations = pulses / 20;
 		printf("Rot: %d", rotations);
