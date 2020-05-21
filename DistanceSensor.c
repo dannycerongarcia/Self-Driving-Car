@@ -58,7 +58,7 @@ void maneuverObject() {
     //printf("%d\n", digitalRead(OBSTACLESENSOR));
     //while(digitalRead(OBSTACLESENSOR) == 1) {
         //pthread_create(&speedEncoderThread, NULL, &SpeedEncoderRotations, NULL);
-        right(30);
+        right(50);
 	//SpeedEncoderRotations();
         //pthread_join(speedEncoderThread, NULL);
     //}
@@ -69,7 +69,7 @@ void maneuverObject() {
     printf("Going forward\n");
     //printf("%d\n", digitalRead(OBSTACLESENSOR));
     //while(digitalRead(OBSTACLESENSOR) == 0) {
-         allForward(30);
+         allForward(50);
     //}
     sleep(2);
     printf("Stopping\n");
