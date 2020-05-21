@@ -63,7 +63,7 @@ int main()
 	sleep(.5);
    }
 
-   pthread_join(motor_thread, NULL);
+   //pthread_join(motor_thread, NULL);
    printf("Hello, World!");
    return 0;
 }
