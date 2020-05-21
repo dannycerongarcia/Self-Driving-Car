@@ -1,4 +1,6 @@
 #include "linesensor.h"
+#include "motors.h"
+
 int LEFT = 0;
 int MID = 0;
 int RIGT = 0;
