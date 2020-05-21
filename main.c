@@ -82,11 +82,11 @@ void InitMotors() {
 
 
 void checkEchoSensor() {
-    if(MeasureDistance() <= 10.0) {
+    if(MeasureDistance() <= 11.0) {
        printf("POTENTIAL OBSTACLE\n");
        stopAll();
        sleep(2);
-       if(MeasureDistance() <= 10.0) {
+       if(MeasureDistance() <= 11.0) {
            printf("Obstacle still there\n");
            maneuverObject();
        }
