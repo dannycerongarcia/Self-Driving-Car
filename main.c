@@ -100,24 +100,32 @@ void maneuverObject() {
         right(70);
         //pthread_join(speedEncoderThread, NULL);
     }
+    printf("Stopping");
     stopAll();
+    sleep(2);
     printf("Going forward\n");
     while(digitalRead(OBSTACLESENSOR) == 0) {
          allForward(23);
     }
+    printf("Stopping");
     stopAll();
+    sleep(2);
     printf("Turning left\n");
     while(digitalRead(OBSTACLESENSOR) == 1) {
         //pthread_create(&speedEncoderThread, NULL, &SpeedEncoderRotations, NULL);
         left(70);
         //pthread_join(speedEncoderThread, NULL);
     }
+    printf("Stopping");
     stopAll();
+    sleep(2);
     printf("Moving forward\n");
     while(digitalRead(OBSTACLESENSOR) == 0) {
         allForward(23);
     }
+    printf("Stopping");
     stopAll();
+    sleep(2);
 }
 
 void CheckLineSensor(_Bool *isTrail)
