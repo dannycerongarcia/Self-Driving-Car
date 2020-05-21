@@ -28,12 +28,13 @@ void * SpeedEncoderRotations(void * args) {
 	while(rotations != 10) {
 	    data = digitalRead(pin);
 	    if(data == dataHigh) {
-            while (data != dataHigh) {
-                data = digitalRead(pin);
+            	while (data != dataHigh) {
+                	data = digitalRead(pin);
+            	}
+            	++pulses;
+            	rotations = pulses / 20;
+		printf("Rot: %d\n", rotations);
             }
-            ++pulses;
-            rotations = pulses / 20;
-        }
 	}
 	return NULL;
 }
