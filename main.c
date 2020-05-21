@@ -15,7 +15,7 @@
 
 #define TRIGGER 21
 #define ECHO 22
-#define SPEEDENCODER 29
+#define SPEEDENCODER 28
 
 void initMotors();
 void initSensors();
@@ -63,7 +63,7 @@ void initMotors() {
 }
 
 void initSensors() {
-	setup_line_sensors(23, 24, 25, 27);
+	setup_line_sensors(23, 24, 25, 27, 29);
    	InitDistanceSensor(TRIGGER, ECHO);
    	InitSpeedEncoder(SPEEDENCODER);
 }
