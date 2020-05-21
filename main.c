@@ -51,7 +51,7 @@ int main()
    InitSpeedEncoder(SPEEDENCODER);
 
    while(isTrail) {
-       checkLineSensor(actPtr, isTrailPtr);
+       checkLineSensor(isTrailPtr);
        checkEchoSensor();
    }
 
@@ -102,3 +102,27 @@ void maneuverObject() {
     stopAll();
 }
 
+void checkLineSensor(_Bool *isTrail)
+{
+    int dlft = digitalRead(LEFT);
+    int mid = digitalRead(MID);
+    int rght =  digitalRead(RIGT);
+
+    if (dlft == LOW && digitalRead(MID) == LOW && digitalRead(RIGT) == LOW)
+    {
+        stopAll();
+        *isTrail = false;
+    }
+    if (dlft == HIGH && digitalRead(MID) == HIGH && digitalRead(RIGT) == HIGH)
+    {
+        allForward(10);
+    }
+    if (dlft == LOW && digitalRead(MID) == HIGH && digitalRead(RIGT) == HIGH)
+    {
+        right(10);
+    }
+    if (dlft == HIGH && digitalRead(MID) == HIGH && digitalRead(RIGT) == LOW)
+    {
+        left(10);
+    }
+}
