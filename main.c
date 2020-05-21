@@ -23,7 +23,6 @@
 void checkEchoSensor();
 void maneuverObject();
 void InitMotors();
-void CheckLineSensor(_Bool * isTrail);
 
 int act = 0;
 int *actPtr = &act;
@@ -38,45 +37,35 @@ void handler(int sig)
    exit(0);
 }
 //------------------------------------------------------------------------------------
-void *motorThreadFunction(void *vargp)
-{
-   // pthread_cleanup_push(handler, NULL);
-   run(actPtr);
-}
 
 
-int main()
-{
-   wiringPiSetup();
-   //    threadinf the motors function
-   signal(SIGINT,handler);
-   //pthread_create(&motor_thread, NULL, motorThreadFunction, (void *)&motor_thread);
 
-   setup_line_sensors(23, 24, 25);
-   InitMotors();
-   InitDistanceSensor(TRIGGER, ECHO);
-   InitSpeedEncoder(SPEEDENCODER);
 
-   while(isTrail) {
-       	CheckLineSensor(isTrailPtr);
-       	checkEchoSensor();
-	sleep(.5);
-   }
+int main() {
+   	wiringPiSetup();
+   	//    threadinf the motors function
+   	signal(SIGINT,handler);
 
-   //pthread_join(motor_thread, NULL);
-   printf("Hello, World!");
-   return 0;
+   	setup_line_sensors(23, 24, 25);
+   	InitMotors();
+   	InitDistanceSensor(TRIGGER, ECHO);
+   	InitSpeedEncoder(SPEEDENCODER);
+
+   	while(isTrail) {
+       		checkLineSensor(isTrailPtr);
+       		checkEchoSensor();
+		sleep(.5);
+   	}
+
+	return 0;
 }
 
 
 
 void InitMotors() {
 	int m1 = init("motor1", "config2");
-
     	int m2 = init("motor2", "config1");
-
     	int m3 = init("motor3", "config1");
-
     	int m4 = init("motor4", "config2");
 }
 
