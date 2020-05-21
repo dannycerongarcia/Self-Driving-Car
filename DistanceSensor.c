@@ -39,11 +39,11 @@ double MeasureDistance() {
 }
 
 void checkEchoSensor() {
-    if(MeasureDistance() <= 11.0) {
+    if(MeasureDistance() <= 20.0) {
        printf("POTENTIAL OBSTACLE\n");
        stopAll();
        sleep(2);
-       if(MeasureDistance() <= 11.0) {
+       if(MeasureDistance() <= 20.0) {
            printf("Obstacle still there\n");
            maneuverObject();
        }
@@ -55,7 +55,7 @@ void maneuverObject() {
     //printf("%d\n", digitalRead(OBSTACLESENSOR));
     //while(digitalRead(OBSTACLESENSOR) == 1) {
         //pthread_create(&speedEncoderThread, NULL, &SpeedEncoderRotations, NULL);
-        right(30);
+        right(50);
         //pthread_join(speedEncoderThread, NULL);
     //}
     sleep(1);
@@ -74,7 +74,7 @@ void maneuverObject() {
     printf("Turning left\n");
     //while(digitalRead(OBSTACLESENSOR) == 1) {
         //pthread_create(&speedEncoderThread, NULL, &SpeedEncoderRotations, NULL);
-    left(30);
+    left(50);
         //pthread_join(speedEncoderThread, NULL);
     //}
     sleep(1);
