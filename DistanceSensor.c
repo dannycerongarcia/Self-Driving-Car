@@ -9,6 +9,7 @@
 
 #define OBSTACLESENSOR 7
 int triggerPin, echoPin;
+pthread_t speedEncoderThread;
 
 void InitDistanceSensor(int trigger, int echo) {
 	triggerPin = trigger;
