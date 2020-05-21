@@ -18,7 +18,7 @@
 #define LEFT 23
 #define MID 24
 #define RIGT 25
-#define OBSTACLESENSOR 1
+#define OBSTACLESENSOR 7
 
 void checkEchoSensor();
 void maneuverObject();
@@ -98,7 +98,7 @@ void maneuverObject() {
     printf("%d\n", digitalRead(OBSTACLESENSOR));
     while(digitalRead(OBSTACLESENSOR) == 1) {
         //pthread_create(&speedEncoderThread, NULL, &SpeedEncoderRotations, NULL);
-        right(30);
+        left(30);
         //pthread_join(speedEncoderThread, NULL);
     }
     printf("Stopping\n");
@@ -115,7 +115,7 @@ void maneuverObject() {
     printf("Turning left\n");
     //while(digitalRead(OBSTACLESENSOR) == 1) {
         pthread_create(&speedEncoderThread, NULL, &SpeedEncoderRotations, NULL);
-        left(30);
+        right(30);
         pthread_join(speedEncoderThread, NULL);
     //}
     printf("Stopping\n");
