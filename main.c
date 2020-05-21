@@ -15,10 +15,6 @@
 #define TRIGGER 21
 #define ECHO 22
 #define SPEEDENCODER 29
-#define LEFT 23
-#define MID 24
-#define RIGT 25
-#define OBSTACLESENSOR 1
 
 void initMotors();
 void initSensors();
