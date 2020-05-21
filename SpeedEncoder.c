@@ -25,7 +25,7 @@ void * SpeedEncoderRotations(void * args) {
 	int data;
 	//int * speed =argptr->speedptr;
 	//_Bool * moving = argptr->movingptr;
-	while(rotations != 4) {
+	while(rotations != 10) {
 	    data = digitalRead(pin);
 	    if(data == dataHigh) {
             while (data != dataHigh) {
