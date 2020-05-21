@@ -131,27 +131,4 @@ void maneuverObject() {
     sleep(2);
 }
 
-void CheckLineSensor(_Bool *isTrail)
-{
-    int dlft = digitalRead(LEFT);
-    int mid = digitalRead(MID);
-    int rght =  digitalRead(RIGT);
 
-    if (dlft == LOW && digitalRead(MID) == LOW && digitalRead(RIGT) == LOW)
-    {
-        stopAll();
-        //*isTrail = FALSE;
-    }
-    if (dlft == HIGH && digitalRead(MID) == HIGH && digitalRead(RIGT) == HIGH)
-    {
-        allForward(23);
-    }
-    if (dlft == LOW && digitalRead(MID) == HIGH && digitalRead(RIGT) == HIGH)
-    {
-        right(23);
-    }
-    if (dlft == HIGH && digitalRead(MID) == HIGH && digitalRead(RIGT) == LOW)
-    {
-        left(23);
-    }
-}
