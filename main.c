@@ -97,7 +97,7 @@ void maneuverObject() {
     printf("Turning right\n");
     while(digitalRead(OBSTACLESENSOR) == 1) {
         //pthread_create(&speedEncoderThread, NULL, &SpeedEncoderRotations, NULL);
-        right(50);
+        right(70);
         //pthread_join(speedEncoderThread, NULL);
     }
     stopAll();
@@ -109,7 +109,7 @@ void maneuverObject() {
     printf("Turning left\n");
     while(digitalRead(OBSTACLESENSOR) == 1) {
         //pthread_create(&speedEncoderThread, NULL, &SpeedEncoderRotations, NULL);
-        left(50);
+        left(70);
         //pthread_join(speedEncoderThread, NULL);
     }
     stopAll();
