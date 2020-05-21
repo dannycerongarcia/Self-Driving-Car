@@ -6,6 +6,7 @@
 #include <pthread.h>
 #include "DistanceSensor.h"
 #include "motors.h"
+#include "SpeedEncoder.h"
 
 #define OBSTACLESENSOR 7
 int triggerPin, echoPin;
