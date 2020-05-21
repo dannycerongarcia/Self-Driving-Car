@@ -44,7 +44,7 @@ int main()
    wiringPiSetup();
    //    threadinf the motors function
    signal(SIGINT,handler);
-   pthread_create(&motor_thread, NULL, motorThreadFunction, (void *)&motor_thread);
+   //pthread_create(&motor_thread, NULL, motorThreadFunction, (void *)&motor_thread);
 
    setup_line_sensors(23, 24, 25);
    InitMotors();
