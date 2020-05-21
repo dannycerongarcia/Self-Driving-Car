@@ -20,7 +20,8 @@
 #define RIGT 25
 #define OBSTACLESENSOR 1
 
-void InitMotors();
+void initMotors();
+void initSensors();
 
 int act = 0;
 int *actPtr = &act;
@@ -43,11 +44,9 @@ int main() {
    	wiringPiSetup();
    	//    threadinf the motors function
    	signal(SIGINT,handler);
-
-   	setup_line_sensors(23, 24, 25);
-   	InitMotors();
-   	InitDistanceSensor(TRIGGER, ECHO);
-   	InitSpeedEncoder(SPEEDENCODER);
+	
+   	initMotors();
+	initSensors();
 
    	while(isTrail) {
        		checkLineSensor(isTrailPtr);
@@ -60,13 +59,16 @@ int main() {
 
 
 
-void InitMotors() {
+void initMotors() {
 	int m1 = init("motor1", "config2");
     	int m2 = init("motor2", "config1");
     	int m3 = init("motor3", "config1");
     	int m4 = init("motor4", "config2");
 }
 
-
-
+void initSensors() {
+	setup_line_sensors(23, 24, 25);
+   	InitDistanceSensor(TRIGGER, ECHO);
+   	InitSpeedEncoder(SPEEDENCODER);
+}
 
