@@ -159,7 +159,7 @@ int allForward(int i)
     foward(&motor4, 26, "config2");
     delay(80);
     foward(&motor1, i, "config2");
-    foward(&motor2, i + 20, "config1");
+    foward(&motor2, i, "config1");
     foward(&motor3, i, "config1");
     foward(&motor4, i, "config2");
     return 0;
@@ -172,7 +172,7 @@ int allReverse(int i)
     reverse(&motor4, 26, "config2");
     delay(80);
     reverse(&motor1, i, "config1");
-    reverse(&motor2, i + 20, "config2");
+    reverse(&motor2, i, "config2");
     reverse(&motor3, i, "config1");
     reverse(&motor4, i, "config2");
     return 0;
@@ -185,7 +185,7 @@ int left(int i)
     foward(&motor4, 60, "config2");
     delay(80);
     reverse(&motor1, i, "config1");
-    foward(&motor2, i + 20, "config2");
+    foward(&motor2, i, "config2");
     reverse(&motor3, i, "config1");
     foward(&motor4, i, "config2");
     return 0;
@@ -198,7 +198,7 @@ int right(int i)
     reverse(&motor4, 60, "config2");
     delay(80);
     foward(&motor1, i, "config1");
-    reverse(&motor2, i + 20, "config2");
+    reverse(&motor2, i, "config2");
     foward(&motor3, i, "config1");
     reverse(&motor4, i, "config2");
     return 0;
