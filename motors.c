@@ -1,6 +1,6 @@
 /**************************************************************             
-* sources: https://www.electronicwings.com/raspberry-pi/raspberry-pi-pwm-generation-using-python-and-c
-
+* sources: 
+*          https://www.electronicwings.com/raspberry-pi/raspberry-pi-pwm-generation-using-python-and-c
 *          https://github.com/sbcshop/MotorShield/blob/master/PiMotor.py
 **************************************************************/
 // resources:
@@ -8,6 +8,7 @@
 #include "motors.h"
 #include <stdlib.h>
 #include <wiringPi.h>
+#include <softPwm.h>
 #include <time.h>
 #include <string.h>
 #include <stdio.h>
@@ -70,12 +71,6 @@ int init(char motor[6], char config[7])
 // it configures the pins the motor will use.
 int initHelper(struct motor *mot, char config[7])
 {
-    if (wiringPiSetup() < 0)
-    {
-
-        printf("WiringPiSetUp failed");
-        return -1;
-    }
     // configuration 1
     // using pointer type 1
     if (strcmp(config, "config1") == 0)
@@ -158,112 +153,103 @@ int stop(struct motor *mot, char config[7])
 }
 int allForward(int i)
 {
-    printf("↑\nforward\n");
-    foward(&motor1, 65, "config2");
-    foward(&motor2, 80, "config1");
-    foward(&motor3, 65, "config1");
-    foward(&motor4, 65, "config2");
+    foward(&motor1, 26, "config2");
+    foward(&motor2, 30, "config1");
+    foward(&motor3, 26, "config1");
+    foward(&motor4, 26, "config2");
     delay(80);
     foward(&motor1, i, "config2");
-    foward(&motor2, i + 20, "config1");
+    foward(&motor2, i, "config1");
     foward(&motor3, i, "config1");
     foward(&motor4, i, "config2");
     return 0;
 }
 int allReverse(int i)
 {
-    printf("↓\nreverse\n");
-    reverse(&motor1, 65, "config1");
-    reverse(&motor2, 80, "config2");
-    reverse(&motor3, 65, "config1");
-    reverse(&motor4, 65, "config2");
+    reverse(&motor1, 26, "config1");
+    reverse(&motor2, 20, "config2");
+    reverse(&motor3, 26, "config1");
+    reverse(&motor4, 26, "config2");
     delay(80);
     reverse(&motor1, i, "config1");
-    reverse(&motor2, i + 10, "config2");
+    reverse(&motor2, i, "config2");
     reverse(&motor3, i, "config1");
     reverse(&motor4, i, "config2");
     return 0;
 }
 int left(int i)
 {
-    reverse(&motor1, 65, "config1");
-    foward(&motor2, 80, "config2");
-    reverse(&motor3, 65, "config1");
-    foward(&motor4, 65, "config2");
+    reverse(&motor1, 60, "config1");
+    foward(&motor2, 60, "config2");
+    reverse(&motor3, 60, "config1");
+    foward(&motor4, 60, "config2");
     delay(80);
-    printf("←\nleft\n");
     reverse(&motor1, i, "config1");
-    foward(&motor2, i + 10, "config2");
+    foward(&motor2, i, "config2");
     reverse(&motor3, i, "config1");
     foward(&motor4, i, "config2");
     return 0;
 }
 int right(int i)
 {
-    foward(&motor1, 65, "config1");
-    reverse(&motor2, 80, "config2");
-    foward(&motor3, 65, "config1");
-    reverse(&motor4, 65, "config2");
+    foward(&motor1, 60, "config1");
+    reverse(&motor2, 60, "config2");
+    foward(&motor3, 60, "config1");
+    reverse(&motor4, 60, "config2");
     delay(80);
-    printf("→\nright\n");
     foward(&motor1, i, "config1");
-    reverse(&motor2, i + 10, "config2");
+    reverse(&motor2, i, "config2");
     foward(&motor3, i, "config1");
     reverse(&motor4, i, "config2");
     return 0;
 }
 int stopAll()
 {
-    printf("\nstop\n");
     stop(&motor1, "config1");
     stop(&motor2, "config2");
     stop(&motor3, "config1");
     stop(&motor4, "config2");
 }
 
+/*
+param: pointer to the action in main
+*/
 int run(int *action)
 {
-
     int m1 = init("motor1", "config2");
-    printf("check = %d\n", m1);
     int m2 = init("motor2", "config1");
-    printf("check = %d\n", m2);
     int m3 = init("motor3", "config1");
-    printf("check = %d\n", m1);
     int m4 = init("motor4", "config2");
-    printf("check = %d\n", m2);
+
+    // speed
     int i = 10;
-    printf("%d",*action);
+   
+    int prev  =0;
     while (*action != -1)
     {
-        if (*action == FORWARD)
+        if (*action == FORWARD && prev != FORWARD)
         {
-            // printf("↑\nforward\n");
             allForward(i);
-            sleep(2);
-            printf("\nstop\n");
-            stopAll();
         }
-        if (*action == REVERSE)
+        if (*action == REVERSE && prev !=  REVERSE)
         {
-            printf("↓\nreverse\n");
             allReverse(i);
         }
-        if (*action == LEFT)
+        if (*action == LEFT && prev != LEFT)
         {
             //turn left
             left(i);
         }
-        if (*action == RIGHT)
+        if (*action == RIGHT && prev != RIGHT)
         {
             //turn right
-            printf("→\nright\n");
             right(i);
         }
-        if (*action == STOP)
+        if (*action == STOP && prev != STOP)
         {
             stopAll();
         }
-        return 0;
+        prev = *action;
     }
+    return 0;
 }
