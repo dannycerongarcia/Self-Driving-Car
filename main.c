@@ -96,28 +96,28 @@ void checkEchoSensor() {
 void maneuverObject() {
     printf("Turning right\n");
     while(digitalRead(OBSTACLESENSOR) == 1) {
-        /*pthread_create(&speedEncoderThread, NULL, &SpeedEncoderRotations, NULL);
+        //pthread_create(&speedEncoderThread, NULL, &SpeedEncoderRotations, NULL);
         right(50);
-        pthread_join(speedEncoderThread, NULL);
-        stopAll();*/
+        //pthread_join(speedEncoderThread, NULL);
     }
+    stopAll();
     printf("Going forward\n");
     while(digitalRead(OBSTACLESENSOR) == 0) {
-         //allForward(23);
+         allForward(23);
     }
-    //stopAll();
+    stopAll();
     printf("Turning left\n");
-    while(digitalRead(OBSTACLESENSOR) == 1) {/*
-        pthread_create(&speedEncoderThread, NULL, &SpeedEncoderRotations, NULL);
+    while(digitalRead(OBSTACLESENSOR) == 1) {
+        //pthread_create(&speedEncoderThread, NULL, &SpeedEncoderRotations, NULL);
         left(50);
-        pthread_join(speedEncoderThread, NULL);
-        stopAll();*/
+        //pthread_join(speedEncoderThread, NULL);
     }
+    stopAll();
     printf("Moving forward\n");
     while(digitalRead(OBSTACLESENSOR) == 0) {
-        //allForward(23);
+        allForward(23);
     }
-    //stopAll();
+    stopAll();
 }
 
 void CheckLineSensor(_Bool *isTrail)
