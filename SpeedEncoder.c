@@ -22,7 +22,7 @@ void  SpeedEncoderRotations() {
 	int rotations = 0;
 	int dataHigh = 1;
 	int data;
-	while(rotations != 10) {
+	while(rotations != 50) {
 	    data = digitalRead(pin);
 	    if(data == dataHigh) {
             	while (data != dataHigh) {
