@@ -47,6 +47,7 @@ int main()
    pthread_create(&motor_thread, NULL, motorThreadFunction, (void *)&motor_thread);
 
    setup_line_sensors(23, 24, 25);
+   InitMotors();
    InitDistanceSensor(TRIGGER, ECHO);
    InitSpeedEncoder(SPEEDENCODER);
 
@@ -58,6 +59,18 @@ int main()
    pthread_join(motor_thread, NULL);
    printf("Hello, World!");
    return 0;
+}
+
+
+
+void InitMotors() {
+	int m1 = init("motor1", "config2");
+
+    	int m2 = init("motor2", "config1");
+
+    	int m3 = init("motor3", "config1");
+
+    	int m4 = init("motor4", "config2");
 }
 
 
