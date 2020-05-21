@@ -84,7 +84,7 @@ void InitMotors() {
 void checkEchoSensor() {
     if(MeasureDistance() <= 10.0) {
        printf("POTENTIAL OBSTACLE\n");
-       //stopAll();
+       stopAll();
        sleep(2);
        if(MeasureDistance() <= 10.0) {
            printf("Obstacle still there\n");
@@ -128,19 +128,19 @@ void CheckLineSensor(_Bool *isTrail)
 
     if (dlft == LOW && digitalRead(MID) == LOW && digitalRead(RIGT) == LOW)
     {
-        //stopAll();
+        stopAll();
         //*isTrail = FALSE;
     }
     if (dlft == HIGH && digitalRead(MID) == HIGH && digitalRead(RIGT) == HIGH)
     {
-        //allForward(23);
+        allForward(23);
     }
     if (dlft == LOW && digitalRead(MID) == HIGH && digitalRead(RIGT) == HIGH)
     {
-        //right(23);
+        right(23);
     }
     if (dlft == HIGH && digitalRead(MID) == HIGH && digitalRead(RIGT) == LOW)
     {
-        //left(23);
+        left(23);
     }
 }
