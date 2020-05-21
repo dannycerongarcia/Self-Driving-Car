@@ -95,6 +95,7 @@ void checkEchoSensor() {
 
 void maneuverObject() {
     printf("Turning right\n");
+    printf("%d\n", digitalRead(OBSTACLESENSOR));
     while(digitalRead(OBSTACLESENSOR) == 1) {
         //pthread_create(&speedEncoderThread, NULL, &SpeedEncoderRotations, NULL);
         right(30);
@@ -104,6 +105,7 @@ void maneuverObject() {
     stopAll();
     sleep(2);
     printf("Going forward\n");
+    printf("%d\n", digitalRead(OBSTACLESENSOR));
     while(digitalRead(OBSTACLESENSOR) == 0) {
          allForward(23);
     }
