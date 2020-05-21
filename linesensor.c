@@ -48,10 +48,10 @@ void checkLineSensor(_Bool *isTrail)
     {
         left(25);
     }
-    /*if(digitalRead(FAR_LEFT) == HIGH) {
+    else if(digitalRead(FAR_LEFT) == HIGH) {
         left(25);
     }
-    if(digitalRead(FAR_RIGHT) == HIGH) {
+    else if(digitalRead(FAR_RIGHT) == HIGH) {
         right(25);
-    }*/
+    }
 }
