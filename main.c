@@ -22,7 +22,7 @@
 void checkEchoSensor();
 void maneuverObject();
 void InitMotors();
-void CheckLineSensor(_Bool * isTrail)
+void CheckLineSensor(_Bool * isTrail);
 
 int act = 0;
 int *actPtr = &act;
