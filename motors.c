@@ -152,7 +152,6 @@ int stop(struct motor *mot, char config[7])
 }
 int allForward(int i)
 {
-    printf("↑\nforward\n");
     foward(&motor1, 26, "config2");
     foward(&motor2, 30, "config1");
     foward(&motor3, 26, "config1");
@@ -166,7 +165,6 @@ int allForward(int i)
 }
 int allReverse(int i)
 {
-    printf("↓\nreverse\n");
     reverse(&motor1, 26, "config1");
     reverse(&motor2, 20, "config2");
     reverse(&motor3, 26, "config1");
@@ -185,7 +183,6 @@ int left(int i)
     reverse(&motor3, 60, "config1");
     foward(&motor4, 60, "config2");
     delay(80);
-    printf("←\nleft\n");
     reverse(&motor1, i, "config1");
     foward(&motor2, i + 20, "config2");
     reverse(&motor3, i, "config1");
@@ -199,7 +196,6 @@ int right(int i)
     foward(&motor3, 60, "config1");
     reverse(&motor4, 60, "config2");
     delay(80);
-    printf("→\nright\n");
     foward(&motor1, i, "config1");
     reverse(&motor2, i + 20, "config2");
     foward(&motor3, i, "config1");
@@ -208,7 +204,6 @@ int right(int i)
 }
 int stopAll()
 {
-    printf("\nstop\n");
     stop(&motor1, "config1");
     stop(&motor2, "config2");
     stop(&motor3, "config1");
