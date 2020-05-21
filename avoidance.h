@@ -1,16 +1,16 @@
-#ifndef FOO_H_
-#define FOO_H_
+#include <stdio.h>
 #include <stdlib.h>
 #include <wiringPi.h>
 #include <time.h>
 #include <string.h>
-#include <stdio.h>
+
+#ifndef AVOIDANCE_H
+#define AVOIDANCE_H
+
 
 void init_ir();
 void setup();
 void loop();
-void test();
+void turn();
 
-
-
-#endif // FOO_H_
+#endif 
