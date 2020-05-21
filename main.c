@@ -118,6 +118,7 @@ void maneuverObject() {
         left(30);
         pthread_join(speedEncoderThread, NULL);
     //}
+    sleep(3);
     printf("Stopping\n");
     stopAll();
     sleep(2);
