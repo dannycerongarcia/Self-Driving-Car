@@ -8,6 +8,7 @@
 #include "motors.h"
 #include <stdlib.h>
 #include <wiringPi.h>
+#include <softPwm.h>
 #include <time.h>
 #include <string.h>
 #include <stdio.h>
