@@ -25,7 +25,7 @@ void init_ir(){
 	setup();
 
 	     while(1){
-		 	loop();
+		 loop();
 	    }	    
 }
 
