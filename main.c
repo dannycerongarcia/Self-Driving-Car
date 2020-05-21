@@ -83,7 +83,7 @@ void InitMotors() {
 void checkEchoSensor() {
     if(MeasureDistance() <= 10.0) {
        printf("POTENTIAL OBSTACLE\n");
-       stopAll();
+       //stopAll();
        sleep(2);
        if(MeasureDistance() <= 10.0) {
            printf("Obstacle still there\n");
@@ -95,28 +95,28 @@ void checkEchoSensor() {
 void maneuverObject() {
     printf("Attempting to go around\n");
     while(digitalRead(OBSTACLESENSOR) == 1) {
-        pthread_create(&speedEncoderThread, NULL, &SpeedEncoderRotations, NULL);
+        /*pthread_create(&speedEncoderThread, NULL, &SpeedEncoderRotations, NULL);
         right(50);
         pthread_join(speedEncoderThread, NULL);
-        stopAll();
+        stopAll();*/
     }
     printf("Going forward\n");
     while(digitalRead(OBSTACLESENSOR) == 0) {
-         allForward(23);
+         //allForward(23);
     }
-    stopAll();
+    //stopAll();
     printf("Turning left\n");
-    while(digitalRead(OBSTACLESENSOR) == 1) {
+    while(digitalRead(OBSTACLESENSOR) == 1) {/*
         pthread_create(&speedEncoderThread, NULL, &SpeedEncoderRotations, NULL);
         left(50);
         pthread_join(speedEncoderThread, NULL);
-        stopAll();
+        stopAll();*/
     }
     printf("Moving forward\n");
     while(digitalRead(OBSTACLESENSOR) == 0) {
-        allForward(23);
+        //allForward(23);
     }
-    stopAll();
+    //stopAll();
 }
 
 void CheckLineSensor(_Bool *isTrail)
@@ -127,19 +127,19 @@ void CheckLineSensor(_Bool *isTrail)
 
     if (dlft == LOW && digitalRead(MID) == LOW && digitalRead(RIGT) == LOW)
     {
-        stopAll();
-        *isTrail = FALSE;
+        //stopAll();
+        //*isTrail = FALSE;
     }
     if (dlft == HIGH && digitalRead(MID) == HIGH && digitalRead(RIGT) == HIGH)
     {
-        allForward(23);
+        //allForward(23);
     }
     if (dlft == LOW && digitalRead(MID) == HIGH && digitalRead(RIGT) == HIGH)
     {
-        right(23);
+        //right(23);
     }
     if (dlft == HIGH && digitalRead(MID) == HIGH && digitalRead(RIGT) == LOW)
     {
-        left(23);
+        //left(23);
     }
 }
