@@ -58,8 +58,9 @@ int main()
    InitSpeedEncoder(SPEEDENCODER);
 
    while(isTrail) {
-       CheckLineSensor(isTrailPtr);
-       checkEchoSensor();
+       	CheckLineSensor(isTrailPtr);
+       	checkEchoSensor();
+	sleep(1);
    }
 
    pthread_join(motor_thread, NULL);
