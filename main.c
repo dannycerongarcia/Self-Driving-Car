@@ -60,7 +60,7 @@ int main()
    while(isTrail) {
        	CheckLineSensor(isTrailPtr);
        	checkEchoSensor();
-	sleep(1);
+	sleep(.5);
    }
 
    pthread_join(motor_thread, NULL);
