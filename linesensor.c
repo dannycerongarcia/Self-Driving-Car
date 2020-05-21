@@ -4,7 +4,6 @@
 int LEFT = 0;
 int MID = 0;
 int RIGT = 0;
-pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 
 void setup_line_sensors(int lft, int mid, int rght)
 {
