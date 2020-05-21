@@ -11,6 +11,6 @@ struct MeasureDataArgs {
 
 void InitSpeedEncoder(int);
 
-void * SpeedEncoderRotations();
+void SpeedEncoderRotations();
 
 #endif //SPEEDENCODER_H
