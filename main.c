@@ -21,7 +21,6 @@ void initSensors();
 
 int act = 0;
 int *actPtr = &act;
-pthread_t motor_thread, speedEncoderThread;
 _Bool isTrail = TRUE;
 _Bool * isTrailPtr = &isTrail;
 //---------------------------------cleaning up threads--------------------------------
