@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <wiringPi.h>
 #include <time.h>
+#include <pthread.h>
 #include "DistanceSensor.h"
 #include "motors.h"
 
