@@ -14,7 +14,7 @@
 
 #define TRIGGER 21
 #define ECHO 22
-#define SPEEDENCODER 29
+#define SPEEDENCODER 27
 
 void initMotors();
 void initSensors();
