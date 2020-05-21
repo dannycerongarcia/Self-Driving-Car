@@ -2,19 +2,20 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include "motors.h"
+#include "avoidance.h"
 
-#define IR1 7 //RIGHT
+// #define IR1 7 //RIGHT
 #define IR2 1 //LEFT
 
 void init_ir();
 void setup();
 void loop();
 void test();
+void turn();
 
-int i = 10;
-int counter = 5;
-bool objLeft = false;
-bool objRight = false;
+int i = 30;
+bool objLeft = 0;
+bool turnLeft = 0;
 
 void init_ir(){
   if(wiringPiSetup() < 0){
@@ -22,65 +23,38 @@ void init_ir(){
 		return 1;
     }
 	setup();
-	    while(1){
-		 loop();
+
+	     while(1){
+		 	loop();
 	    }	    
 }
 
 void setup(){
+	// pinMode(IR1, INPUT);
 	pinMode(IR2, INPUT);
-	pinMode(IR1, INPUT);
 }
 
 void loop(){
-	int right_obs = digitalRead(IR1);
 	int left_obs = digitalRead(IR2);
-	
-	printf("LEFT: %d\n", left_obs);
-	printf("RIGHT %d\n", right_obs);
-	
-	
-	//if there is an obstacle on either side
-	if(left_obs == 0 || right_obs == 0){
+	printf(left_obs);
+
+	if(left_obs == 1){
 		allForward(i);
-		
-		if(left_obs == 0){
-		    objLeft = true;
-		}  
-			if( right_obs ==0 ){
-			    objRight = true;
-		}  
-    
 	}
-			// if(left_obs == 1 && right_obs ==1){
-			// 	delay(100);
-			// 	stopAll();
-			// }	else {
-			// 		stopAll();
-			// }
-    
-            while(left_obs){
-            	if(left_obs == 1){
-		       stopAll();
-		       sleep(3);
-		       left(i);
-		       printf("Turning LEFT....\n");
-			
-			//left_obs = false;
-		  	  break;
-            	}
-	    }
-        
-	   while(right_obs){
-            	if(right_obs == 1){
-		       stopAll();
-			sleep(3);
-               		right(i);
-			printf("Turning RIGHT....\n");
-			
-			//right_obs = false;
-		    break;
-            }
-        }
-	
+	else if(left_obs == 0){
+		printf("Left Obstacle Detected: (%d)\n", left_obs);
+		turn();
+
+	} else {
+		printf("Nothing detected..");
+	}
 }
+
+
+void turn(){
+	while(digitalRead(IR2) == 0){
+		allForward();
+	}
+		left(i);
+}
+
