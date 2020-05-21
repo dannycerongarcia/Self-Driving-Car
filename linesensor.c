@@ -38,7 +38,7 @@ void checkLineSensor(_Bool *isTrail)
     }
     if (dlft == HIGH && digitalRead(MID) == HIGH && digitalRead(RIGT) == HIGH)
     {
-        allForward(20);
+        allForward(25);
     }
     if (dlft == LOW && digitalRead(MID) == HIGH && digitalRead(RIGT) == HIGH)
     {
@@ -48,10 +48,10 @@ void checkLineSensor(_Bool *isTrail)
     {
         left(25);
     }
-    else if(digitalRead(FAR_LEFT) == LOW) {
+    else if(digitalRead(FAR_LEFT) == HIGH) {
         left(25);
     }
-    else if(digitalRead(FAR_RIGHT) == LOW) {
+    else if(digitalRead(FAR_RIGHT) == HIGH) {
         right(25);
     }
 }
