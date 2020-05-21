@@ -17,14 +17,11 @@ void InitSpeedEncoder(int pinNum) {
 }
 
 void * SpeedEncoderRotations(void * args) {
-	printf("THREAD");
-	//struct MeasureDataArgs * argptr = (struct MeasureDataArgs *) args;
+	printf("THREAD\n");
 	int pulses = 0;
 	int rotations = 0;
 	int dataHigh = 1;
 	int data;
-	//int * speed =argptr->speedptr;
-	//_Bool * moving = argptr->movingptr;
 	while(rotations != 10) {
 	    data = digitalRead(pin);
 	    if(data == dataHigh) {
@@ -33,7 +30,7 @@ void * SpeedEncoderRotations(void * args) {
             	}
             	++pulses;
             	rotations = pulses / 20;
-		printf("Rot: %d\n", rotations);
+		printf("Rot: %d", rotations);
             }
 	}
 	return NULL;
