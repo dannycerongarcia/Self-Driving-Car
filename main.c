@@ -43,7 +43,6 @@ int main() {
 	
    	initMotors();
 	initSensors();
-	init_ir();
 
    	while(isTrail) {
        		checkLineSensor(isTrailPtr);
