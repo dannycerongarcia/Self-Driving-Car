@@ -16,7 +16,7 @@ void InitSpeedEncoder(int pinNum) {
 	pinMode(pinNum, INPUT);
 }
 
-void  SpeedEncoderRotations(void * args) {
+void  SpeedEncoderRotations() {
 	printf("THREAD\n");
 	int pulses = 0;
 	int rotations = 0;
